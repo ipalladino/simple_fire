@@ -7,7 +7,6 @@ gem 'rails', '3.1.1'
 
 gem 'jquery-rails'
 gem "shopify_api", "~> 2.0.0"
-gem 'sqlite3'
 
 group :production do
   gem 'therubyracer-heroku', '0.8.1.pre3'
@@ -26,6 +25,7 @@ end
 group :development do
   gem 'rspec-rails', '2.6.1'
   gem 'annotate', :git => 'git://github.com/jeremyolliver/annotate_models.git', :branch => 'rake_compatibility'
+  gem 'sqlite3'
 end
 
 # To use ActiveModel has_secure_password
