@@ -11,7 +11,8 @@ gem 'sqlite3'
 
 group :production do
   gem 'therubyracer-heroku', '0.8.1.pre3'
-  gem 'pg'
+  gem "pg", "~> 0.11.0"
+  gem "activerecord", "~> 3.1.1"
 end
 
 # Gems used only for assets and not required
