@@ -7,7 +7,6 @@ gem 'rails', '3.1.1'
 
 gem 'sqlite3'
 
-gem 'json'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -18,6 +17,12 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem "shopify_api", "~> 2.0.0"
+
+group :development do
+	gem 'rspec-rails', '2.6.1'
+	gem 'annotate', :git => 'git://github.com/jeremyolliver/annotate_models.git', :branch => 'rake_compatibility'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -29,5 +34,10 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'ruby-debug'
+# gem 'ruby-debug19', :require => 'ruby-debug'
 
+group :test do
+	gem 'rspec-rails', '2.6.1'
+	gem 'webrat', '0.7.1'
+	gem 'spork', '0.9.0.rc8'
+end
