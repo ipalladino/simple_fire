@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>Sites/d2m_eCards/app/controllers/pages_controller.rb</string>
+	<string>app/controllers/pages_controller.rb</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -21,12 +21,12 @@
 	<integer>200</integer>
 	<key>metaData</key>
 	<dict>
-		<key>Sites/d2m_eCards/app/controllers/pages_controller.rb</key>
+		<key>app/controllers/pages_controller.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>53</integer>
+				<integer>52</integer>
 				<key>line</key>
 				<integer>30</integer>
 			</dict>
@@ -35,21 +35,21 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>Sites/d2m_eCards/app/views/layouts/application.html.erb</key>
+		<key>app/helpers/application_helper.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>24</integer>
+				<integer>0</integer>
 				<key>line</key>
-				<integer>7</integer>
+				<integer>16</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
-		<key>Sites/d2m_eCards/app/views/pages/contact.html.erb</key>
+		<key>app/helpers/pages_helper.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
@@ -66,13 +66,13 @@
 	</dict>
 	<key>openDocuments</key>
 	<array>
-		<string>Sites/d2m_eCards/app/views/layouts/application.html.erb</string>
-		<string>Sites/d2m_eCards/app/controllers/pages_controller.rb</string>
-		<string>Sites/d2m_eCards/app/views/pages/contact.html.erb</string>
+		<string>app/controllers/pages_controller.rb</string>
+		<string>app/helpers/application_helper.rb</string>
+		<string>app/helpers/pages_helper.rb</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{606, 0}, {537, 878}}</string>
+	<string>{{0, 0}, {1180, 878}}</string>
 </dict>
 </plist>

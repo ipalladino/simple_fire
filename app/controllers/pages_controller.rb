@@ -28,12 +28,12 @@ class PagesController < ApplicationController
     http = Net::HTTP.new('leuschke-inc8683.myshopify.com')
     #http.use_ssl = true
     http.start do |http|
-      req = Net::HTTP::Get.new('/admin/products.xml')
+      req = Net::HTTP::Get.new('/admin/products.json')
       # we make an HTTP basic auth by passing the
       # username and password
       req.basic_auth api, password
       resp, data = http.request(req)
-      render :xml => data 
+      render :json => data 
     end    
   end
   

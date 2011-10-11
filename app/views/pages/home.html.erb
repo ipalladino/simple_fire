@@ -3,6 +3,24 @@
   This is the home page for the
   <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
   sample application.
- <p><%= link_to "Get Products!", getproducts_path, :remote => true %></p> 	
+ <p><%= link_to "Get Products!", getproducts_path, :remote => true %></p>
+
+	<div id="flash_content">
+	  <strong>You need to upgrade your Flash Player</strong>
+	  This is replaced by the Flash content. 
+	  Place your alternate content here and users without the
+	  Flash plugin or with Javascript turned off will see this.
+	  Content here allows you to leave out <code>noscript</code>
+	  tags.
+	</div>
+
+	<script type="text/javascript">
+		var attributes = {};
+		var flashvars = {};
+		var params = {};
+		params.scale =  "noscale";
+		params.allowScriptAccess = "sameDomain";
+		swfobject.embedSWF("D2MeCards.swf?asd=<%= rand(1000000000) %>", "flash_content", "550", "400", "9.0.0","", flashvars, params, attributes);
+	</script>
   
 </p>
