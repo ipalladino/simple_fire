@@ -7,10 +7,8 @@ gem 'rails', '3.1.1'
 
 gem 'jquery-rails'
 gem "shopify_api", "~> 2.0.0"
-gem "swf_fu", "~> 1.3.3"
 
 group :production do
-  gem 'therubyracer-heroku', '0.8.1.pre3'
   gem "pg", "~> 0.11.0"
   gem "activerecord", "~> 3.1.1"
 end
