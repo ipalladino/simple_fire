@@ -5,8 +5,14 @@ gem 'rails', '3.1.1'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
+gem 'jquery-rails'
+gem "shopify_api", "~> 2.0.0"
 gem 'sqlite3'
 
+group :production do
+  gem 'therubyracer-heroku', '0.8.1.pre3'
+  gem 'pg'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -16,12 +22,9 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
-gem "shopify_api", "~> 2.0.0"
-
 group :development do
-	gem 'rspec-rails', '2.6.1'
-	gem 'annotate', :git => 'git://github.com/jeremyolliver/annotate_models.git', :branch => 'rake_compatibility'
+  gem 'rspec-rails', '2.6.1'
+  gem 'annotate', :git => 'git://github.com/jeremyolliver/annotate_models.git', :branch => 'rake_compatibility'
 end
 
 # To use ActiveModel has_secure_password
@@ -37,7 +40,7 @@ end
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :test do
-	gem 'rspec-rails', '2.6.1'
-	gem 'webrat', '0.7.1'
-	gem 'spork', '0.9.0.rc8'
+  gem 'rspec-rails', '2.6.1'
+  gem 'webrat', '0.7.1'
+  gem 'spork', '0.9.0.rc8'
 end
