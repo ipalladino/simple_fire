@@ -1,7 +1,9 @@
 D2mECards::Application.routes.draw do
-  get "pages/home"
 
-  get "pages/contact"
+  resources :users
+  root :to => 'pages#home'
+  match '/contact', :to =>  'pages#contact'
+  match '/getproducts', :to => 'pages#getproducts'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
