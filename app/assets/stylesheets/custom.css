@@ -86,6 +86,12 @@ a.signup_button {
   padding: 20px;
 }
 
+#flash_content {
+    margin-left:60px;
+    text-align: center;
+    width:550px;
+}
+
 
 /* Round corners */
 
