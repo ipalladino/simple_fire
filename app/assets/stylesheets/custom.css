@@ -1,5 +1,5 @@
 .container {
-    width: 710px;
+    width: 980px;
 }
 
 section h1 {
@@ -87,9 +87,9 @@ a.signup_button {
 }
 
 #flash_content {
-    margin-left:60px;
+    margin-left:-10px;
     text-align: center;
-    width:550px;
+    width:960px;
 }
 
 

@@ -21,6 +21,9 @@ class PagesController < ApplicationController
   def help
     @title = "Help"
   end
+  def app
+    @title = "Application"
+  end
   
   def getproducts    
     api = "1c407a7cf65eb1c79a9a1883830be87b"
