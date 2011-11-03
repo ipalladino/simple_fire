@@ -2,6 +2,8 @@ require "net/http"
 require "uri"
 require 'open-uri'
 require 'shopify_api'
+require 'mechanize'
+require 'logger'
 
 
 class PagesController < ApplicationController
@@ -25,28 +27,16 @@ class PagesController < ApplicationController
     @title = "Application"
   end
   
-  def addToCart    
-    #url = URI.parse('http://leuschke-inc8683.myshopify.com/cart/add')
-    #req = Net::HTTP::Post.new('/cart/add')
-    #req.body = 'id=141661592'
-    #res = Net::HTTP.new('leuschke-inc8683.myshopify.com').start {|http| http.request(req) }
-    #case res
-    #when Net::HTTPSuccess, Net::HTTPRedirection
-    #  #OK
-    #else
-    #  res.error!
-    #end  
-    #render :text => "Response #{res.body}"
-    body = "id=141661592"
+  def addToCart          
     
-    http = Net::HTTP.new('leuschke-inc8683.myshopify.com')
-    http.start do |http|
-        req = Net::HTTP::Post.new('/cart/add')
-        req.body = body
-        req.set_form_data({'variant_ID' => '141661592'})
-        resp, data = http.request(req)
-        render :text => data
-    end
+    agent = Mechanize.new { |agent| agent.user_agent_alias = 'Mac Mozilla' }
+    page = agent.get 'http://simple-fire-1105.herokuapp.com/'
+    add_to_cart_form = page.form_with(:action => 'http://leuschke-inc8683.myshopify.com/cart/add')
+    add_to_cart_form['id'] = '141661592'
+    add_to_cart_form['return_to'] = 'http://leuschke-inc8683.myshopify.com/checkout'
+    page = agent.submit add_to_cart_form
+    render :text => page.body
+    
   end
   
   def getproducts    
