@@ -43,7 +43,7 @@ class PagesController < ApplicationController
     http.start do |http|
         req = Net::HTTP::Post.new('/cart/add')
         req.body = body
-        req.set_form_data({'id' => '141661592'})
+        req.set_form_data({'variant_ID' => '141661592'})
         resp, data = http.request(req)
         render :text => data
     end

@@ -6,6 +6,51 @@
 	<%= render 'layouts/stylesheets'%>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 	<%= javascript_include_tag "application", "rails", 'swfobject' %>
+	<script type="text/javascript">
+	
+	function addToCart()
+	{
+		var f = document.createElement('form'); 
+		f.style.display = 'none'; 
+		this.parentNode.appendChild(f); 
+		f.method = 'POST'; 
+		f.action = this.href; 
+		var v = document.createElement('input'); 
+		v.setAttribute('type', 'hidden'); 
+		v.setAttribute('name', 'id'); 
+		v.setAttribute('value', '141661592'); 
+		f.appendChild(v); 
+		var r = document.createElement('input'); 
+		r.setAttribute('type', 'hidden'); 
+		r.setAttribute('name', 'return_to'); 
+		r.setAttribute('value', 'back'); 
+		f.appendChild(r); 
+		f.submit(); 
+		return false;
+	}
+	
+	$('#addToCart').click(function() {
+		alert("called from jquery");
+	  	var f = document.createElement('form'); 
+		f.style.display = 'none'; 
+		this.parentNode.appendChild(f); 
+		f.method = 'POST'; 
+		f.action = this.href; 
+		var v = document.createElement('input'); 
+		v.setAttribute('type', 'hidden'); 
+		v.setAttribute('name', 'id'); 
+		v.setAttribute('value', '141661592'); 
+		f.appendChild(v); 
+		var r = document.createElement('input'); 
+		r.setAttribute('type', 'hidden'); 
+		r.setAttribute('name', 'return_to'); 
+		r.setAttribute('value', 'back'); 
+		f.appendChild(r); 
+		f.submit(); 
+		return false;
+	});
+	
+	</script>
 
   </head>
   <body>

@@ -12,6 +12,11 @@
 
  <p><%= link_to "Get Products!", getproducts_path, :remote => true %></p>
 
+<a href="http://leuschke-inc8683.myshopify.com/cart/add" onclick="addToCart();">AddToCart javascript</a>
+
+<a href="http://leuschke-inc8683.myshopify.com/cart/add" onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href; var v = document.createElement('input'); v.setAttribute('type', 'hidden'); v.setAttribute('name', 'id'); v.setAttribute('value', '141661592'); f.appendChild(v); var r = document.createElement('input'); r.setAttribute('type', 'hidden'); r.setAttribute('name', 'return_to'); r.setAttribute('value', 'back'); f.appendChild(r); f.submit(); return false;">BUY NOW</a>
+
+
  <p><%= link_to "Add to Cart!", addToCart_path, :remote => true %></p>
 
 	
