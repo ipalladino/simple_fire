@@ -3,10 +3,17 @@
   This is just an example demo for inky dynky e-cards with integrated flash UI made for/by
   <a href="http://d2m-inc.com/">D2m-inc</a>
   sample application.
+	<form action="http://leuschke-inc8683.myshopify.com/cart/add" method="post">
+	  <input type="hidden" name="id" value="141661592" />
+	  <input type="hidden" name="return_to" value="back" />
+	  <input type="submit" value="BUY NOW" />
+	</form>
+	
+
  <p><%= link_to "Get Products!", getproducts_path, :remote => true %></p>
 
-	<div id="flash_content">
-	  Flash disabled for the moment
-	</div>
+ <p><%= link_to "Add to Cart!", addToCart_path, :remote => true %></p>
+
+	
   
 </p>

@@ -5,6 +5,7 @@ D2mECards::Application.routes.draw do
   match '/contact', :to =>  'pages#contact'
   match '/app', :to =>  'pages#app'
   match '/getproducts', :to => 'pages#getproducts'
+  match '/addToCart', :to => 'pages#addToCart'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
