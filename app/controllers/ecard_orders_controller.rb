@@ -19,7 +19,7 @@ class EcardOrdersController < ApplicationController
     
     #check if financial status is paid/authorized
     if order['financial-status'][0] == 'paid' or order['financial-status'][0] == 'authorized'
-=begin
+
       #generate random code
       dateTime = Time.new
       timestamp = dateTime.to_time.to_i
@@ -28,7 +28,7 @@ class EcardOrdersController < ApplicationController
       
       items = ''
       #look for ecards on the order
-
+=begin
       order['line-items'][0]['line-item'].each do |item|
         items << "variant_id: " + String(item['variant-id'][0]['content']) + " "
         variant_id = item['variant-id'][0]['content']
