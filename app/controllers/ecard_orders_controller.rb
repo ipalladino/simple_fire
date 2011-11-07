@@ -38,7 +38,7 @@ class EcardOrdersController < ApplicationController
         #if(ecard = Ecard.find :all, :conditions => ['variant_id = ?', variant_id])
         ecard = Ecard.find_by_id(1)
     
-        if(ecard == nil)
+        if(ecard != nil)
 
           #EcardOrder.find :all, :order => 'id DESC', :conditions => ['code = ? AND sent = ?', code, false]
           #create an entry on our db with the code and ecard
