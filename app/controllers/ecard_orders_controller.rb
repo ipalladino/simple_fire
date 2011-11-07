@@ -9,6 +9,7 @@ class EcardOrdersController < ApplicationController
   end
   
   def handleorder
+=begin
     logger = Logger.new('logfile.log')
     logger.info('initialize...recieved webhook') { request.body }
     found = false
@@ -49,6 +50,8 @@ class EcardOrdersController < ApplicationController
     end
 
     render :text => items
+=end
+    render :text => 'ok'
   end
   
   def redeemcode
