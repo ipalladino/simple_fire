@@ -13,6 +13,7 @@ class EcardOrdersController < ApplicationController
     logger = Logger.new('logfile.log')
     logger.info('initialize...recieved webhook') { request.body }
     found = false
+    ecard = Ecard.new
     
     #parse order xml
     order = XmlSimple.xml_in(request.body)
