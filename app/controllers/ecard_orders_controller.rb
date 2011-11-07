@@ -31,15 +31,14 @@ class EcardOrdersController < ApplicationController
         variant_id = item['variant-id'][0]['content']
 
         #if ecard = Ecard.find_by_variant_id(variant_id)
-        #if(ecard = Ecard.find :all, :conditions => ['variant_id = ?', variant_id])
-        if(ecard = Ecard.find(1))
-=begin
+        if(ecard = Ecard.find :all, :conditions => ['variant_id = ?', variant_id])
+
           #EcardOrder.find :all, :order => 'id DESC', :conditions => ['code = ? AND sent = ?', code, false]
           #create an entry on our db with the code and ecard
           ecardorder = EcardOrder.create(:ecard_id => ecard[0].id, :code => String(code), :sent => false)
           items << "Added card:" + String(ecard[0].variant_id) + " with the code:" + String(code) + "--"
           puts ecard[0].variant_id
-=end
+
           found = true
 
         end
