@@ -21,14 +21,10 @@ class EcardOrdersController < ApplicationController
     if order['financial-status'][0] == 'paid' or order['financial-status'][0] == 'authorized'
 
       #generate random code
-      dateTime = Time.new
-      timestamp = dateTime.to_time.to_i
-      alphanumerics = [('0'..'9'),('A'..'Z'),('a'..'z'),(timestamp)].map {|range| range.to_a}.flatten
-      code = (0...16).map { alphanumerics[Kernel.rand(alphanumerics.size)] }.join
-      
+      aemail = order['email'][0]
+      code = new_secure_link("#{Time.now.utc}--#{aemail}")      
       items = ''
       #look for ecards on the order
-=begin
       order['line-items'][0]['line-item'].each do |item|
         items << "variant_id: " + String(item['variant-id'][0]['content']) + " "
         variant_id = item['variant-id'][0]['content']
@@ -42,17 +38,16 @@ class EcardOrdersController < ApplicationController
           found = true
         end
       end
-=end 
     end
     
     #if a code was created send it
-    #if found
-      #user = {:email => order['email'][0], :name => order['email'][0], :code => code}
-      #CodeNotifier.welcome(user).deliver
-    #end
+    if found
+      user = {:email => order['email'][0], :name => order['email'][0], :code => code}
+      CodeNotifier.welcome(user).deliver
+    end
 
-    #render :text => items
-    render :text => 'ok'
+    render :text => items
+    #render :text => 'ok'
   end
   
   def redeemcode
