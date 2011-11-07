@@ -22,14 +22,17 @@ class EcardOrdersController < ApplicationController
 
       #generate random code
       aemail = order['email'][0]
-      code = new_secure_link("#{Time.now.utc}--#{aemail}")      
+      puts "email from xml:" + aemail
+      code = new_secure_link("#{Time.now.utc}--#{aemail}")
+      puts "new code:" + code
       items = ''
       #look for ecards on the order
       order['line-items'][0]['line-item'].each do |item|
 
         items << "variant_id: " + String(item['variant-id'][0]['content']) + " "
         variant_id = item['variant-id'][0]['content']
-
+        puts items
+        puts "Attemping to find Ecard with id 1..."
         #if ecard = Ecard.find_by_variant_id(variant_id)
         #if(ecard = Ecard.find :all, :conditions => ['variant_id = ?', variant_id])
         ecard = Ecard.find(1)
