@@ -19,6 +19,7 @@ class EcardOrdersController < ApplicationController
     
     #check if financial status is paid/authorized
     if order['financial-status'][0] == 'paid' or order['financial-status'][0] == 'authorized'
+=begin
       #generate random code
       dateTime = Time.new
       timestamp = dateTime.to_time.to_i
@@ -27,7 +28,7 @@ class EcardOrdersController < ApplicationController
       
       items = ''
       #look for ecards on the order
-=begin
+
       order['line-items'][0]['line-item'].each do |item|
         items << "variant_id: " + String(item['variant-id'][0]['content']) + " "
         variant_id = item['variant-id'][0]['content']
@@ -41,14 +42,14 @@ class EcardOrdersController < ApplicationController
           found = true
         end
       end
-=end    
+=end 
     end
     
     #if a code was created send it
-    if found
-      user = {:email => order['email'][0], :name => order['email'][0], :code => code}
-      CodeNotifier.welcome(user).deliver
-    end
+    #if found
+      #user = {:email => order['email'][0], :name => order['email'][0], :code => code}
+      #CodeNotifier.welcome(user).deliver
+    #end
 
     #render :text => items
     render :text => 'ok'
