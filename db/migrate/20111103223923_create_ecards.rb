@@ -6,5 +6,6 @@ class CreateEcards < ActiveRecord::Migration
       
       t.timestamps
     end
+    Ecards.create :filename => "mermaid.swf", :variant_id => 141661592
   end
 end
