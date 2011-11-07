@@ -8,6 +8,8 @@ gem 'rails', '3.1.1'
 gem 'jquery-rails'
 gem "shopify_api", "~> 2.0.0"
 gem "mechanize", "~> 2.0.1"
+gem "xml-simple", "~> 1.1.1"
+gem "actionmailer", "~> 3.1.1"
 
 group :production do
   gem "pg", "~> 0.11.0"

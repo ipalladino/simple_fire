@@ -142,11 +142,13 @@ GEM
       rack-test (>= 0.5.3)
     webrobots (0.0.12)
       nokogiri (>= 1.4.4)
+    xml-simple (1.1.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  actionmailer (~> 3.1.1)
   activerecord (~> 3.1.1)
   annotate!
   coffee-rails (~> 3.1.1)
@@ -161,3 +163,4 @@ DEPENDENCIES
   sqlite3
   uglifier (>= 1.0.3)
   webrat (= 0.7.1)
+  xml-simple (~> 1.1.1)

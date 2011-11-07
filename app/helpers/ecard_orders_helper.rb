@@ -1,0 +1,2 @@
+module EcardOrdersHelper
+end
