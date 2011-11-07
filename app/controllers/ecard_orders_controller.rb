@@ -25,10 +25,11 @@ class EcardOrdersController < ApplicationController
       code = new_secure_link("#{Time.now.utc}--#{aemail}")      
       items = ''
       #look for ecards on the order
-=begin
       order['line-items'][0]['line-item'].each do |item|
+
         items << "variant_id: " + String(item['variant-id'][0]['content']) + " "
         variant_id = item['variant-id'][0]['content']
+=begin
         #if ecard = Ecard.find_by_variant_id(variant_id)
         if(ecard = Ecard.find :all, :conditions => ['variant_id = ?', variant_id])
           #EcardOrder.find :all, :order => 'id DESC', :conditions => ['code = ? AND sent = ?', code, false]
@@ -38,8 +39,8 @@ class EcardOrdersController < ApplicationController
           puts ecard[0].variant_id
           found = true
         end
-      end
 =end
+      end
     end
     
     #if a code was created send it
