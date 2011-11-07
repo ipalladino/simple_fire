@@ -9,14 +9,14 @@ class EcardOrdersController < ApplicationController
   end
   
   def handleorder
-=begin
+
     logger = Logger.new('logfile.log')
     logger.info('initialize...recieved webhook') { request.body }
     found = false
     
     #parse order xml
     order = XmlSimple.xml_in(request.body)
-    
+=begin    
     #check if financial status is paid/authorized
     if order['financial-status'][0] == 'paid' or order['financial-status'][0] == 'authorized'
       #generate random code
