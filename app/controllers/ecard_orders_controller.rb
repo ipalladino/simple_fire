@@ -29,7 +29,9 @@ class EcardOrdersController < ApplicationController
       order['line-items'][0]['line-item'].each do |item|
         items << "variant_id: " + String(item['variant-id'][0]['content']) + " "
         variant_id = item['variant-id'][0]['content']
-        if ecard = Ecard.find_by_variant_id(variant_id)
+        #if ecard = Ecard.find_by_variant_id(variant_id)
+        if(ecard = Ecard.find :all, :conditions => ['variant_id = ?', variant_id])
+          #EcardOrder.find :all, :order => 'id DESC', :conditions => ['code = ? AND sent = ?', code, false]
           #create an entry on our db with the code and ecard
           ecardorder = EcardOrder.create(:ecard_id => ecard.id, :code => String(code), :sent => false)
           items << "Added card:" + String(ecard.variant_id) + " with the code:" + String(code) + "--"

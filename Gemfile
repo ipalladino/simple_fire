@@ -14,6 +14,7 @@ gem "actionmailer", "~> 3.1.1"
 group :production do
   gem "pg", "~> 0.11.0"
   gem "activerecord", "~> 3.1.1"
+  gem 'thin'
 end
 
 # Gems used only for assets and not required
