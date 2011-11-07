@@ -37,7 +37,7 @@ class EcardOrdersController < ApplicationController
         #if ecard = Ecard.find_by_variant_id(variant_id)
         #if(ecard = Ecard.find :all, :conditions => ['variant_id = ?', variant_id])
         ecard = Ecard.find_by_id(1)
-=begin        
+    
         if(ecard == nil)
 
           #EcardOrder.find :all, :order => 'id DESC', :conditions => ['code = ? AND sent = ?', code, false]
@@ -48,7 +48,7 @@ class EcardOrdersController < ApplicationController
 
           found = true
         end
-=end
+
       end
     end
     
