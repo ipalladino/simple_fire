@@ -25,6 +25,7 @@ class EcardOrdersController < ApplicationController
       code = new_secure_link("#{Time.now.utc}--#{aemail}")      
       items = ''
       #look for ecards on the order
+=begin
       order['line-items'][0]['line-item'].each do |item|
         items << "variant_id: " + String(item['variant-id'][0]['content']) + " "
         variant_id = item['variant-id'][0]['content']
@@ -38,6 +39,7 @@ class EcardOrdersController < ApplicationController
           found = true
         end
       end
+=end
     end
     
     #if a code was created send it
