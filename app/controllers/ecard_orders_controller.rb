@@ -16,7 +16,7 @@ class EcardOrdersController < ApplicationController
     
     #parse order xml
     order = XmlSimple.xml_in(request.body)
-=begin    
+    
     #check if financial status is paid/authorized
     if order['financial-status'][0] == 'paid' or order['financial-status'][0] == 'authorized'
       #generate random code
@@ -27,6 +27,7 @@ class EcardOrdersController < ApplicationController
       
       items = ''
       #look for ecards on the order
+=begin
       order['line-items'][0]['line-item'].each do |item|
         items << "variant_id: " + String(item['variant-id'][0]['content']) + " "
         variant_id = item['variant-id'][0]['content']
@@ -40,7 +41,7 @@ class EcardOrdersController < ApplicationController
           found = true
         end
       end
-            
+=end    
     end
     
     #if a code was created send it
@@ -49,8 +50,7 @@ class EcardOrdersController < ApplicationController
       CodeNotifier.welcome(user).deliver
     end
 
-    render :text => items
-=end
+    #render :text => items
     render :text => 'ok'
   end
   
