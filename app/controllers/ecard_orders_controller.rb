@@ -36,7 +36,7 @@ class EcardOrdersController < ApplicationController
         puts "Attemping to find Ecard with id 1..."
         #if ecard = Ecard.find_by_variant_id(variant_id)
         #if(ecard = Ecard.find :all, :conditions => ['variant_id = ?', variant_id])
-        ecard = Ecard.find :all, :conditions => ['variant_id = ?', variant_id]
+        ecard = Ecard.find_by_variant_id(variant_id.to_i)
     
         if(ecard != nil)
 
