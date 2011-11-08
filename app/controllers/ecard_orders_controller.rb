@@ -59,11 +59,12 @@ class EcardOrdersController < ApplicationController
         o.save
         
         #here I would send the email
+        puts "attemping to send email"
         content = {:email => recipient_email, 
                    :recipient_name => recipient_name, 
                    :link => link,
                    :senderemail => sender_email,
-                   :senderemail => sender_email}
+                   :sendername => sender_name}
         CodeNotifier.recipientecardnotification(content).deliver
 
         render :text => "Order found: email sent code automatically redeemed"

@@ -35,8 +35,8 @@ class PagesController < ApplicationController
   end
   
   def addtocart 
-    email = 'ipalladino@gmail.com'
-    card_id = '141661592'
+    email = params[:email]
+    #card_id = '141661592'
     
     variant_id = params[:item]
     imageurl = params[:image]
