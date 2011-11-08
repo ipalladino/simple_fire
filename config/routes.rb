@@ -9,11 +9,13 @@ D2mECards::Application.routes.draw do
   resources :users
   root :to => 'pages#home'
   
+  match "/cart" => redirect("http://leuschke-inc8683.myshopify.com/cart")
+  
   match '/view/ecard', :to =>  'ecard_orders#viewecard'
   match '/contact', :to =>  'pages#contact'
   match '/app', :to =>  'pages#app'
   match '/getproducts', :to => 'pages#getproducts'
-  match '/addToCart', :to => 'pages#addToCart'
+  match '/addtocart', :to => 'pages#addtocart'
   match '/viewcookie', :to => 'pages#viewcookie'
   
   match '/handleorder', :to => 'ecard_orders#handleorder'

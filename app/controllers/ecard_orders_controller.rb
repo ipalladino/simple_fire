@@ -70,6 +70,8 @@ class EcardOrdersController < ApplicationController
       else
         redeem_code_failed
       end
+    else 
+      render :text => '404: user data not present'
     end
   end
   

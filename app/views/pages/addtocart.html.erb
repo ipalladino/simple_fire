@@ -1,0 +1,8 @@
+<h1>Add to Cart</h1>
+<p>
+	<img src="<%= @image %>" />
+	<form action="http://leuschke-inc8683.myshopify.com/cart/add" method="post">
+	  <input type="hidden" name="id" value="<%= @item %>" />
+	  <input type="submit" value="Add to cart" />
+	</form>
+</p>

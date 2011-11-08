@@ -34,22 +34,35 @@ class PagesController < ApplicationController
     render :text => 'Cookie successfully set: email is' + cookies[:ecardemail] + " and the id is " + cookies[:ecardid]
   end
   
-  def addToCart 
+  def addtocart 
     email = 'ipalladino@gmail.com'
-    card_id = '141661592'    
-  
+    card_id = '141661592'
+    
+    variant_id = params[:item]
+    imageurl = params[:image]
+    
     cookies[:ecardemail] = { :value => email, :expires => 1.hour.from_now }
     
     cookies[:ecardid] = { :value => card_id, :expires => 1.hour.from_now }
+    @image = imageurl
+    @item = variant_id
     
-    render :text => 'Cookie successfully set: email is' + cookies[:ecardemail]
-    #agent = Mechanize.new { |agent| agent.user_agent_alias = 'Mac Mozilla' }
-    #page = agent.get 'http://simple-fire-1105.herokuapp.com/'
+    #a = Mechanize.new { |agent| agent.user_agent_alias = 'Mac Mozilla' }
+    #page = a.get 'http://simple-fire-1105.herokuapp.com/'
     #add_to_cart_form = page.form_with(:action => 'http://leuschke-inc8683.myshopify.com/cart/add')
     #add_to_cart_form['id'] = '141661592'
     #add_to_cart_form['return_to'] = 'http://leuschke-inc8683.myshopify.com/checkout'
-    #page = agent.submit add_to_cart_form
-    #render :text => page.body
+    #page = a.submit add_to_cart_form
+    #c = a.cookies.collect {|c| {:name => c.name, :value => c.value}}
+    #c.each do |cc|
+      #puts "Cookie name: " + cc[:name]
+      #puts "Cookie value: " + cc[:value]
+      #puts "Cookie domain: " + cc[:domain]
+      #response.set_cookie(cc[:name], {:value => cc[:value], :domain => "leuschke-inc8683.myshopify.com", :path => '/'})
+      #response.set_cookie(cc[:name], {:value => cc[:value]})
+    #end
+    
+    #render :text => 'Cookie successfully set: email is' + cookies[:ecardemail]
   end
   
   def getproducts    
