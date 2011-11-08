@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111107061853) do
+ActiveRecord::Schema.define(:version => 20111107225214) do
 
   create_table "ecard_orders", :force => true do |t|
     t.string   "code"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(:version => 20111107061853) do
     t.boolean  "sent"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "email"
   end
 
   add_index "ecard_orders", ["ecard_id"], :name => "index_ecard_orders_on_ecard_id"

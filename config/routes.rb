@@ -8,13 +8,17 @@ D2mECards::Application.routes.draw do
 
   resources :users
   root :to => 'pages#home'
+  
   match '/view/ecard', :to =>  'ecard_orders#viewecard'
   match '/contact', :to =>  'pages#contact'
   match '/app', :to =>  'pages#app'
   match '/getproducts', :to => 'pages#getproducts'
   match '/addToCart', :to => 'pages#addToCart'
+  match '/viewcookie', :to => 'pages#viewcookie'
+  
   match '/handleorder', :to => 'ecard_orders#handleorder'
   match '/redeemcode', :to => 'ecard_orders#redeemcode'
+  match '/autoredeem', :to => 'ecard_orders#autoredeem'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
