@@ -5,13 +5,13 @@ class CodeNotifier < ActionMailer::Base
   def welcome(recipient)
     @account = recipient
     mail(:to => recipient[:email],
-         :bcc => ["bcc@example.com", "Order Watcher <watcher@example.com>"])
+         :bcc => ["bcc@example.com", "Order Watcher <gabriel@simplecustomsolutions.com>"])
   end
   
   def recipient(content)
     @content = content
     mail(:to => content[:email],                                          
-         :bcc => [content[:senderemail], "Order Watcher <ipalladino@gmail.com>"])  
+         :bcc => [content[:senderemail], "Order Watcher <gabriel@simplecustomsolutions.com>"])  
   end
 end
 
