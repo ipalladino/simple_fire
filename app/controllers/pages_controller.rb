@@ -43,7 +43,7 @@ class PagesController < ApplicationController
     
     cookies[:ecardemail] = { :value => email, :expires => 1.hour.from_now }
     
-    cookies[:ecardid] = { :value => card_id, :expires => 1.hour.from_now }
+    cookies[:ecardid] = { :value => variant_id, :expires => 1.hour.from_now }
     @image = imageurl
     @item = variant_id
     
