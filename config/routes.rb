@@ -11,6 +11,7 @@ D2mECards::Application.routes.draw do
   
   match "/cart" => redirect("http://leuschke-inc8683.myshopify.com/cart")
   
+  match '/requestmessages', :to =>  'ecard_orders#requestmessages'
   match '/view/ecard', :to =>  'ecard_orders#viewecard'
   match '/contact', :to =>  'pages#contact'
   match '/app', :to =>  'pages#app'

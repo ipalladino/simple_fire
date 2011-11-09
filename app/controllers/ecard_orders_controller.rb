@@ -126,8 +126,7 @@ class EcardOrdersController < ApplicationController
       CodeNotifier.welcome(user).deliver
     end
 
-    render :text => items
-    #render :text => 'ok'
+    render :text => 'OK'
   end
   
   def redeemcode
@@ -210,5 +209,15 @@ class EcardOrdersController < ApplicationController
     @code = params[:ecard]
   end
   
+  def requestmessages
+    code = params[:code]
+    sentecard = SentEcard.find_by_securelink(code)
+    if(sentecard != nil)
+      j = ActiveSupport::JSON
+      render :json => j.encode(sentecard)
+    else
+      render :text => "Failed"
+    end
+  end
 
 end
