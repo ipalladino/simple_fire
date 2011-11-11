@@ -10,10 +10,13 @@
 </head>
 
 <body>
-	<p>Hello <%= @content[:recipient_name]%>:
+	<div style="font-size:47;">
+		ARTIPHANY
+	</div>
+	<p>Hello <%= @content[:recipient_name]%>!
 		</p>
-You have recieved a new ecard from <%= @content[:sendername]%>
-To view it follow this link
-http://simple-fire-1105.herokuapp.com/ecard?ecard=<%= @content[:link]%>
+You have recieved a new ecard from <%= @content[:sendername]%> <br />
+Go ahead and enjoy it by <a href="http://artiphany.herokuapp.com/ecard?ecard=<%= @content[:link]%>" >clicking here!</a>
+
 </body>
 </html>

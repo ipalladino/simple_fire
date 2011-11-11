@@ -126,7 +126,7 @@ class EcardOrdersController < ApplicationController
       CodeNotifier.welcome(user).deliver
     end
 
-    render :text => 'OK'
+    render :nothing => true
   end
   
   def redeemcode
