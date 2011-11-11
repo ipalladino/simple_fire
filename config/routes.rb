@@ -7,7 +7,7 @@ D2mECards::Application.routes.draw do
   get "senders/new"
 
   resources :users
-  root :to => 'pages#home'
+  root :to => 'pages#app'
   
   match "/cart" => redirect("http://leuschke-inc8683.myshopify.com/cart")
   
