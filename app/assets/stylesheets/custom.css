@@ -65,7 +65,7 @@ nav {
     background: white;
     padding: 0 4.4em;
     white-space: nowrap;
-    margin-top:20px;
+    margin-top:48px;
 }
 
 nav ul {
@@ -76,7 +76,11 @@ nav ul {
 nav ul li {
     list-style-type: none;
     display: inline-block;
-    padding: 0.2em 0;
+    padding: 0px;
+    border-right:1px solid #cccccc;
+    height:16px;
+    line-height:15px;
+    font-size: 11px;
 }
 
 nav ul li a {
@@ -92,7 +96,7 @@ nav ul li a:visited {
 
 nav ul li a:hover {
     /* text-decoration: underline; */
-    color: #cacaca;
+    color: #49d02c;
 }
 
 /* Sign up button */
