@@ -1,10 +1,3 @@
-<h1>Inky dinky flash app demo</h1>
-<p>
-  This is just an example demo for inky dynky e-cards with integrated flash UI made for/by
-  <a href="http://d2m-inc.com/">D2m-inc</a>
-  sample application.
- <p><%= link_to "Get Products!", getproducts_path, :remote => true %></p>
-
 	<div id="flash_content">
 	  <strong>You need to upgrade your Flash Player</strong>
 	  This is replaced by the Flash content. 
@@ -19,8 +12,7 @@
 		var flashvars = {};
 		var params = {};
 		params.scale =  "noscale";
+		params.wmode =  "transparent";
 		params.allowScriptAccess = "sameDomain";
 		swfobject.embedSWF("D2MeCards.swf?asd=<%= rand(1000000000) %>", "flash_content", "960", "540", "9.0.0","", flashvars, params, attributes);
 	</script>
-  
-</p>

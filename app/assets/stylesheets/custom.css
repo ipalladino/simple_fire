@@ -1,5 +1,5 @@
 .container {
-    width: 980px;
+    width: 960px;
 }
 
 section h1 {
@@ -7,11 +7,20 @@ section h1 {
 }
 
 body {
-    background: #FFCC99;
+    /* background: #FFCC99; */
+    background-image: url('http://localhost:3000/bg-slate.jpg');
 }
 
 header {
-    padding-top: 20px;
+    padding:1em;
+    background: #fff;
+}
+
+logo {
+    font-family:'Arial';
+    font-size: 47px;
+    padding:10px;
+    margin-left:50px;
 }
 
 header img {
@@ -22,29 +31,41 @@ header img {
 section {
     margin-top: 1em;
     font-size: 120%;
+    /* padding: 20px; */
+    /* background: #fff; */
+    height:538px;
+}
+
+.section2 {
+    margin-top: 1em;
+    font-size: 120%;
     padding: 20px;
     background: #fff;
+    -moz-border-radius:    10px;
+    -webkit-border-radius: 10px;
+    border-radius:         10px;
 }
 
 a {
-    color: #09c;
+    color: #999999;
     text-decoration:none;
 }
 
 a:hover {
-    color: #069;
-    text-decoration: underline;
+    color: #cacaca;
+    /* text-decoration: underline; */
 }
 
 a:visited {
-    color: #069;
+    color: #999999;
 }
 
 nav {
     float: right;
     background: white;
-    padding: 0 0.7em;
+    padding: 0 4.4em;
     white-space: nowrap;
+    margin-top:20px;
 }
 
 nav ul {
@@ -61,14 +82,17 @@ nav ul li {
 nav ul li a {
     padding: 0 5px;
     font-weight:bold;
+    color: #999999;
 }
 
 nav ul li a:visited {
-    color: #09c;
+    /* color: #09c; */
+    color: #999999;
 }
 
 nav ul li a:hover {
-    text-decoration: underline;
+    /* text-decoration: underline; */
+    color: #cacaca;
 }
 
 /* Sign up button */
@@ -87,7 +111,8 @@ a.signup_button {
 }
 
 #flash_content {
-    margin-left:-10px;
+    margin-top:0px;
+    margin-left:0px;
     text-align: center;
     width:960px;
     height:540px;
@@ -109,6 +134,8 @@ footer {
   width: 710px;
   margin-left: auto;
   margin-right: auto;
+  color:#aaaaaa;
+  font-size:11px;
 }
 
 footer nav {
