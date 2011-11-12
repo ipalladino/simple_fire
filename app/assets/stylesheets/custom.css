@@ -1,9 +1,20 @@
 .container {
     width: 960px;
+    background: #fff;
+    -moz-border-radius:    10px;
+    -webkit-border-radius: 10px;
+    border-radius:         10px;
 }
 
 section h1 {
     font-size:200%;
+}
+
+.separator {
+    width:880px;
+    margin:0 auto;
+    height:1px;
+    border-top:1px solid #cccccc;
 }
 
 body {
@@ -12,7 +23,7 @@ body {
 }
 
 header {
-    padding:1em;
+    padding:0;
     background: #fff;
 }
 
@@ -71,6 +82,7 @@ nav {
 nav ul {
     margin: 0;
     padding: 0;
+    text-align:right;
 }
 
 nav ul li {
@@ -78,9 +90,11 @@ nav ul li {
     display: inline-block;
     padding: 0px;
     border-right:1px solid #cccccc;
-    height:16px;
-    line-height:15px;
+    height:13px;
+    line-height:13px;
     font-size: 11px;
+    margin-left:10px;
+    padding-right:10px;
 }
 
 nav ul li a {
