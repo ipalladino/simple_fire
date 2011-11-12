@@ -1,9 +1,9 @@
 .container {
     width: 960px;
     background: #fff;
-    -moz-border-radius:    10px;
-    -webkit-border-radius: 10px;
-    border-radius:         10px;
+    -moz-border-radius:    15px;
+    -webkit-border-radius: 15px;
+    border-radius:         15px;
 }
 
 section h1 {
@@ -11,7 +11,7 @@ section h1 {
 }
 
 .separator {
-    width:880px;
+    width:820px;
     margin:0 auto;
     height:1px;
     border-top:1px solid #cccccc;
@@ -23,8 +23,10 @@ body {
 }
 
 header {
-    padding:0;
     background: #fff;
+    width:862px;
+    margin:0 auto;
+    padding-top:20px;
 }
 
 logo {
@@ -75,7 +77,7 @@ a:visited {
 nav {
     float: right;
     background: white;
-    padding: 0 4.4em;
+    padding: 0 0.7em;
     white-space: nowrap;
     margin-top:48px;
 }
@@ -130,7 +132,7 @@ a.signup_button {
 }
 
 #flash_content {
-    margin-top:0px;
+    margin-top:-15px;
     margin-left:0px;
     text-align: center;
     width:960px;
@@ -141,9 +143,9 @@ a.signup_button {
 /* Round corners */
 
 .round {
-  -moz-border-radius:    10px;
-  -webkit-border-radius: 10px;
-  border-radius:         10px;
+  -moz-border-radius:    15px;
+  -webkit-border-radius: 15px;
+  border-radius:         15px;
 }
 
 /* footer */
@@ -155,6 +157,7 @@ footer {
   margin-right: auto;
   color:#aaaaaa;
   font-size:11px;
+  padding-top:15px;
 }
 
 footer nav {
