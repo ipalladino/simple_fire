@@ -1,7 +1,8 @@
 namespace :bootstrap do
   desc "Add the default ecard"
   task :default_ecard => :environment do
-    Ecard.create( :variant_id => 141661592, :filename => 'mermaid.swf' )
+    Ecard.create( :variant_id => 158636822, :filename => 'MQbday.swf' )
+    Ecard.create( :variant_id => 160501332, :filename => 'Christmas.swf' )
   end
 
   #desc "Create the default comment"
