@@ -1,6 +1,7 @@
 .container {
     width: 960px;
     background: #fff;
+    margin: 10px auto;
     -moz-border-radius:    15px;
     -webkit-border-radius: 15px;
     border-radius:         15px;

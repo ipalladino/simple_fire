@@ -72,9 +72,14 @@ class EcardOrdersController < ApplicationController
         redeem_code_failed
       end
     else 
-      render :text => '404: user data not present'
+      not_found
     end
   end
+  
+  def not_found
+    raise ActionController::RoutingError.new('Not Found')
+  end
+  
   
   def handleorder
 
