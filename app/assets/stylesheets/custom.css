@@ -30,11 +30,9 @@ header {
     padding-top:20px;
 }
 
-logo {
-    font-family:'Arial';
-    font-size: 47px;
-    padding:10px;
-    margin-left:50px;
+.logo {
+    margin-top:3px;
+    margin-left:1px;
 }
 
 header img {
@@ -80,7 +78,7 @@ nav {
     background: white;
     padding: 0 0.7em;
     white-space: nowrap;
-    margin-top:48px;
+    margin-top:52px;
 }
 
 nav ul {
