@@ -228,7 +228,6 @@ class EcardOrdersController < ApplicationController
     code = params[:code]
     sentecard = SentEcard.find_by_securelink(code)
     e = Ecard.find_by_id(sentecard.ecard_id)
-    sentecard[:filename] = e.filename
     if(sentecard != nil)
       j = ActiveSupport::JSON
       render :json => j.encode(sentecard)
