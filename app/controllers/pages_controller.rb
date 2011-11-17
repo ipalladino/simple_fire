@@ -66,9 +66,9 @@ class PagesController < ApplicationController
   end
   
   def getproducts    
-    api = "1c407a7cf65eb1c79a9a1883830be87b"
-    password = "90fc2c2816609950da97db0135806369"
-    http = Net::HTTP.new('leuschke-inc8683.myshopify.com')
+    api = "80a9b470d0dd9ac4628c98f093a6d758"
+    password = "79a34b79f0dbafa7327581d04535f8a7"
+    http = Net::HTTP.new('artiphany.myshopify.com')
     #http.use_ssl = true
     http.start do |http|
       req = Net::HTTP::Get.new('/admin/products.json')
