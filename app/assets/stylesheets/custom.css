@@ -20,7 +20,7 @@ section h1 {
 
 body {
     /* background: #FFCC99; */
-    background-image: url('http://artiphany.herokuapp.com/bg-slate.jpg');
+    background-image: url('/bg-slate.jpg');
 }
 
 header {

@@ -143,6 +143,16 @@ class EcardOrdersController < ApplicationController
     message1 = params[:message1]
     message2 = params[:message2]
     ecard_variant_id = params[:ecard_variant_id]
+    
+    #STUB
+    #code = "123"
+    #recipient_name = "recipient_name"
+    #recipient_email = "recipient@email.com"
+    #sender_name = "sender_name"
+    #sender_email = "sender@email.com"
+    #message1 = "message1"
+    #message2 = "message2"
+    #ecard_variant_id = "ecard_variant_id"
 
     found = false
     ecard_id = 0
@@ -217,6 +227,8 @@ class EcardOrdersController < ApplicationController
   def requestmessages
     code = params[:code]
     sentecard = SentEcard.find_by_securelink(code)
+    e = Ecard.find_by_id(sentecard.ecard_id)
+    sentecard[:filename] = e.filename
     if(sentecard != nil)
       j = ActiveSupport::JSON
       render :json => j.encode(sentecard)
