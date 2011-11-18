@@ -95,8 +95,8 @@ class EcardOrdersController < ApplicationController
     order = XmlSimple.xml_in(request.body)
     
     #check if financial status is paid/authorized
-    if order['financial-status'][0] == 'paid' or order['financial-status'][0] == 'authorized'
-
+    #if order['financial-status'][0] == 'paid' or order['financial-status'][0] == 'authorized'
+    if order['financial-status'][0] == 'paid'
       #generate random code
       aemail = order['email'][0]
       puts "email from xml:" + aemail
