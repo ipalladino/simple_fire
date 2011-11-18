@@ -67,7 +67,7 @@ class EcardOrdersController < ApplicationController
                    :sendername => sender_name}
         CodeNotifier.recipient(content).deliver
 
-        render :text => "Order found: email sent code automatically redeemed"
+        render :nothing => true
       else
         redeem_code_failed
       end
