@@ -18,21 +18,23 @@
 	</tr>
 	<tr>
 		<td>
-			<p>Hi <%= @content[:recipient_name]%>!
+			<p style="font-family:'Arial'; font-weight:bold; color:#999999;">Hi <%= @content[:recipient_name]%>!
 				</p>
 			<p>
-				I just sent you an eCard I hope you like!.
+				I just sent you an eCard I hope you like!.<br />
 				You can see it by <a href="http://artiphany.herokuapp.com/view/ecard?ecard=<%= @content[:link]%>" >clicking here.</a>.
-				
-				<a href="http://artiphany.herokuapp.com/view/ecard?ecard=<%= @content[:link]%>"><img src="<%= @content[:image] %>" /></a>
 			</p>
 			<p>
 				<%= @content[:sendername]%> <br />
 			</p>
+			
 		</td>
 	</tr>
-
-	
-
+	<tr>
+		<td>
+			<a href="http://artiphany.herokuapp.com/view/ecard?ecard=<%= @content[:link]%>"><img src="<%= @content[:image] %>" /></a>
+		</td>
+	</tr>
+	</table>
 </body>
 </html>
