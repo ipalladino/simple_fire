@@ -17,6 +17,7 @@ class EcardOrdersController < ApplicationController
     message1 = params[:message1]
     message2 = params[:message2]
     ecard_variant_id = params[:ecard_variant_id]
+    imageurl = params[:image]
 
     found = false
     ecard_id = 0
@@ -58,13 +59,15 @@ class EcardOrdersController < ApplicationController
         o.sent = true
         o.save
         
+        
         #here I would send the email
         puts "attemping to send email"
         content = {:email => recipient_email, 
                    :recipient_name => recipient_name, 
                    :link => link,
                    :senderemail => sender_email,
-                   :sendername => sender_name}
+                   :sendername => sender_name,
+                   :image => imageurl}
         CodeNotifier.recipient(content).deliver
 
         render :nothing => true
