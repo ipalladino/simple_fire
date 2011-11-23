@@ -10,10 +10,28 @@
 </head>
 
 <body>
-	<div style="font-size:47;">
-		ARTIPHANY
-	</div>
-	Hello <%= @account[:name]  %>
-	This is your e-card code <%= @account[:code] %>
+	<table>
+	<tr>
+		<td>
+			<img src="http://static.shopify.com/s/files/1/0103/6782/t/2/assets/logo.png?1590" />
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<p style="font-family:'Arial'; font-weight:bold; color:#999999;">Thanks  <%= @account[:name]  %>!
+				</p>
+			<p>
+				You've purchased an ecard from us.<br />  
+				This is your redeemable code which you can use to send your cards,<br />
+				<br />
+				<%= @account[:code] %>
+			</p>
+			<p>
+				ARTIPHANY <br />
+			</p>
+			
+		</td>
+	</tr>
+	</table>
 </body>
 </html>
