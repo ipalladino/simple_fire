@@ -206,7 +206,7 @@ class EcardOrdersController < ApplicationController
                  :link => link,
                  :senderemail => sender_email,
                  :senderemail => sender_email}
-      CodeNotifier.recipientecardnotification(content).deliver
+      CodeNotifier.recipient(content).deliver
 
       render :text => "Order found: email sent"
     else
