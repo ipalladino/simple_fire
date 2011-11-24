@@ -199,7 +199,9 @@ class EcardOrdersController < ApplicationController
         #here I would send the email
       end
     end
+    pp "If we found the order and did all our staff go into the email sending code"
     if found
+      pp "All went OK, was found, about to send email"
       content = {:email => recipient_email, 
                  :recipient_name => recipient_name, 
                  :link => link,
