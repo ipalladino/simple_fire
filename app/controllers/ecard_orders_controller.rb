@@ -179,7 +179,6 @@ class EcardOrdersController < ApplicationController
             ecard_id = ecard.id
           end
         end
-        break if found == true  
       end
       
       #if the equivalent variant_id with the order was found create a sent_ecard and send email
