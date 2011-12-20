@@ -161,6 +161,7 @@ class EcardOrdersController < ApplicationController
     e = Ecard.new
     o = EcardOrder.new
     
+    
     #check code for redeemable ecards
     if(ordered_ecards = EcardOrder.find :all, :order => 'id DESC', :conditions => ['code = ? AND sent = ?', code, false])
       pp ordered_ecards
@@ -197,6 +198,21 @@ class EcardOrdersController < ApplicationController
         
         #here I would send the email
       end
+    end
+    
+    if(code == "birdseed")
+      link = new_secure_link("#{Time.now.utc}--#{recipient_email}")
+      sent_ecard = SentEcard.create(:recipientemail => recipient_email,
+                                    :recipientname => recipient_name,
+                                    :message1 => message1,
+                                    :message2 => message2,
+                                    :nametoshow => sender_name,
+                                    :senderemail => sender_email,
+                                    :ecard_id => ecard_id,
+                                    :securelink => link)
+      o.sent = true
+      o.save
+      found = true
     end
     pp "If we found the order and did all our staff go into the email sending code"
     if found

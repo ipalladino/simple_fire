@@ -33,7 +33,7 @@
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>176</integer>
+			<integer>79</integer>
 		</dict>
 		<key>app/controllers/pages_controller.rb</key>
 		<dict>
