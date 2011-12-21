@@ -8,6 +8,10 @@ class EcardOrdersController < ApplicationController
   def new
   end
   
+  def sendBackerEmail
+    
+  end
+  
   def autoredeem
     code = params[:code]
     recipient_name = params[:recipient_name]
