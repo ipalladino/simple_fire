@@ -206,6 +206,12 @@ class EcardOrdersController < ApplicationController
     
     if(code == "birdseed")
       link = new_secure_link("#{Time.now.utc}--#{recipient_email}")
+      #look for the ecard associated with the ecard_id on the order
+      ecard = Ecard.find_by_variant_id(ecard_variant_id)
+      if ecard != nil       
+        ecard_id = ecard.id
+      end
+      
       sent_ecard = SentEcard.create(:recipientemail => recipient_email,
                                     :recipientname => recipient_name,
                                     :message1 => message1,
