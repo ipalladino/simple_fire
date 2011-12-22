@@ -12,8 +12,7 @@ class CodeNotifier < ActionMailer::Base
     message = "You just received an eCard from " + content[:sendername]
     @content = content
     mail(:to => content[:email],                                          
-         :bcc => [content[:senderemail], "Order Watcher <gabriel@simplecustomsolutions.com>"],
-         :subject => message)  
+         :bcc => [content[:senderemail], "Order Watcher <gabriel@simplecustomsolutions.com>"])  
   end
 end
 
