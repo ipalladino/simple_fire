@@ -9,8 +9,8 @@ class CodeNotifier < ActionMailer::Base
   end
   
   def recipient(content)
-    messagesubject = "You just received an eCard through Artiphany"
     @content = content
+    messagesubject = "You just received an eCard through Artiphany from " + content[:sendername]
     mail(:to => content[:email],                                          
          :bcc => [content[:senderemail], "Order Watcher <gabriel@simplecustomsolutions.com>"],
          :subject => messagesubject)  
