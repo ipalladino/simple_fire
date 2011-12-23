@@ -26,23 +26,23 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>8</integer>
+				<integer>43</integer>
 				<key>line</key>
-				<integer>211</integer>
+				<integer>233</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>182</integer>
+			<integer>204</integer>
 		</dict>
-		<key>app/controllers/pages_controller.rb</key>
+		<key>app/mailers/code_notifier.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>4</integer>
+				<integer>30</integer>
 				<key>line</key>
-				<integer>41</integer>
+				<integer>12</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -54,9 +54,9 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>1</integer>
+				<integer>21</integer>
 				<key>line</key>
-				<integer>12</integer>
+				<integer>27</integer>
 			</dict>
 			<key>columnSelection</key>
 			<false/>
@@ -67,84 +67,26 @@
 			<key>selectFrom</key>
 			<dict>
 				<key>column</key>
-				<integer>9</integer>
+				<integer>18</integer>
 				<key>line</key>
-				<integer>37</integer>
+				<integer>27</integer>
 			</dict>
 			<key>selectTo</key>
 			<dict>
 				<key>column</key>
-				<integer>1</integer>
+				<integer>28</integer>
 				<key>line</key>
-				<integer>12</integer>
+				<integer>27</integer>
 			</dict>
-		</dict>
-		<key>app/views/code_notifier/welcome.html.erb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>6</integer>
-				<key>line</key>
-				<integer>22</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
 		</dict>
 		<key>app/views/pages/app.html.erb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>43</integer>
+				<integer>9</integer>
 				<key>line</key>
-				<integer>0</integer>
-			</dict>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-		</dict>
-		<key>config/routes.rb</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>50</integer>
-				<key>line</key>
-				<integer>19</integer>
-			</dict>
-			<key>columnSelection</key>
-			<false/>
-			<key>firstVisibleColumn</key>
-			<integer>0</integer>
-			<key>firstVisibleLine</key>
-			<integer>0</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>45</integer>
-				<key>line</key>
-				<integer>19</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>56</integer>
-				<key>line</key>
-				<integer>19</integer>
-			</dict>
-		</dict>
-		<key>public/mail_test.html</key>
-		<dict>
-			<key>caret</key>
-			<dict>
-				<key>column</key>
-				<integer>1</integer>
-				<key>line</key>
-				<integer>8</integer>
+				<integer>4</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -154,12 +96,9 @@
 	</dict>
 	<key>openDocuments</key>
 	<array>
-		<string>public/mail_test.html</string>
-		<string>app/views/code_notifier/welcome.html.erb</string>
-		<string>app/controllers/pages_controller.rb</string>
 		<string>app/controllers/ecard_orders_controller.rb</string>
+		<string>app/mailers/code_notifier.rb</string>
 		<string>app/views/pages/app.html.erb</string>
-		<string>config/routes.rb</string>
 		<string>app/views/code_notifier/recipient.html.erb</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>

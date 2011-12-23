@@ -204,7 +204,7 @@ class EcardOrdersController < ApplicationController
       end
     end
     
-    if(code == "birdseed")
+    if(code == "birdseed" or code == "narwhal")
       link = new_secure_link("#{Time.now.utc}--#{recipient_email}")
       #look for the ecard associated with the ecard_id on the order
       ecard = Ecard.find_by_variant_id(ecard_variant_id)
