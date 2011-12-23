@@ -5,7 +5,7 @@ class CodeNotifier < ActionMailer::Base
   def welcome(recipient)
     @account = recipient
     mail(:to => recipient[:email],
-         :subject => "You just purchased an eCard, inside you will find your redeemable code",
+         :subject => "You just purchased an eCard from Artiphany, inside you will find your redeemable code",
          :bcc => ["bcc@example.com", "Order Watcher <gabriel@simplecustomsolutions.com>"])
   end
   
