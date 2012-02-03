@@ -62,7 +62,7 @@ class PagesController < ApplicationController
     cookies[:imageurl] = { :value => imageurl, :expires => 1.hour.from_now }
     
     @image = imageurl
-    @item = variant_id
+    #@item = ecard_variant_id
   end
   
   def addtocart 
