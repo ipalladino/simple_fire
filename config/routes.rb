@@ -13,6 +13,7 @@ D2mECards::Application.routes.draw do
   match '/view/ecard', :to =>  'ecard_orders#viewecard'
   match '/contact', :to =>  'pages#contact'
   match '/app', :to =>  'pages#app'
+  match '/testnewapp', :to =>  'pages#testnewapp'
   match '/getproducts', :to => 'pages#getproducts'
   match '/addtocart', :to => 'pages#addtocart'
   match '/viewcookie', :to => 'pages#viewcookie'

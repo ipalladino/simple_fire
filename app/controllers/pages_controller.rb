@@ -29,6 +29,10 @@ class PagesController < ApplicationController
     @title = "Application"
   end
   
+  def testnewapp
+    @title = "Test new app"
+  end
+  
   def viewcookie
     
     render :text => 'Cookie successfully set: email is' + cookies[:ecardemail] + " and the id is " + cookies[:ecardid]
