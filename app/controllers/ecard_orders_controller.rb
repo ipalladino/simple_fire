@@ -88,7 +88,38 @@ class EcardOrdersController < ApplicationController
   end
   
   def transactionsuccess
+    recipient_email = cookies[:recipient_email]
+    #cookies[:imageurl] = { :value => imageurl, :expires => 1.hour.from_now }
     
+    puts "****************************************"
+    puts "Attemping to find cookies"
+    puts "****************************************"
+    
+    if(recipient_email != nil)
+      puts "****************************************"
+      puts "Cookie found, preparing to send email"
+      puts "****************************************"
+        
+      @image = cookies[:imageurl]
+      link = new_secure_link("#{Time.now.utc}--#{recipient_email}")
+      sent_ecard = SentEcard.create(:recipientemail => cookies[:recipient_email],
+                                  :recipientname => cookies[:recipient_name],
+                                  :message1 => cookies[:message1],
+                                  :message2 => cookies[:message2],
+                                  :nametoshow => cookies[:sender_name],
+                                  :senderemail => cookies[:sender_email],
+                                  :ecard_id => cookies[:ecard_variant_id],
+                                  :securelink => link)
+
+      puts "attemping to send email"
+      content = {:email => recipient_email, 
+                 :recipient_name => recipient_name, 
+                 :link => link,
+                 :senderemail => sender_email,
+                 :sendername => sender_name,
+                 :image => imageurl}
+      CodeNotifier.recipient(content).deliver
+    end
   end
   
   
