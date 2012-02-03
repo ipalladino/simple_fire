@@ -87,6 +87,10 @@ class EcardOrdersController < ApplicationController
     raise ActionController::RoutingError.new('Not Found')
   end
   
+  def transactionsuccess
+    
+  end
+  
   
   def handleorder
 

@@ -38,6 +38,18 @@ class PagesController < ApplicationController
     render :text => 'Cookie successfully set: email is' + cookies[:ecardemail] + " and the id is " + cookies[:ecardid]
   end
   
+  def paywithpaypal 
+    email = params[:email]    
+    variant_id = params[:item]
+    imageurl = params[:image]
+    
+    cookies[:ecardemail] = { :value => email, :expires => 1.hour.from_now }
+    cookies[:ecardid] = { :value => variant_id, :expires => 1.hour.from_now }
+    
+    @image = imageurl
+    @item = variant_id
+  end
+  
   def addtocart 
     email = params[:email]
     #card_id = '141661592'
