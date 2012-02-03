@@ -120,6 +120,8 @@ class EcardOrdersController < ApplicationController
                  :image => imageurl}
       CodeNotifier.recipient(content).deliver
     end
+    
+    render :nothing => true
   end
   
   
