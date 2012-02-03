@@ -112,12 +112,12 @@ class EcardOrdersController < ApplicationController
                                   :securelink => link)
 
       puts "attemping to send email"
-      content = {:email => recipient_email, 
-                 :recipient_name => recipient_name, 
+      content = {:email => cookies[:recipient_email], 
+                 :recipient_name => cookies[:recipient_name], 
                  :link => link,
-                 :senderemail => sender_email,
-                 :sendername => sender_name,
-                 :image => imageurl}
+                 :senderemail => cookies[:sender_email],
+                 :sendername => cookies[:sender_name],
+                 :image => cookies[:imageurl]}
       CodeNotifier.recipient(content).deliver
     end
   end
