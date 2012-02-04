@@ -97,15 +97,15 @@ class EcardOrdersController < ApplicationController
     
     if(recipient_email != nil)
       cookies.delete :recipient_email
-      @message = "Thank you for your purchase!! <br />
-  		We sent you an email with the details of your purchase, and we already took care of sending your ecard.<br />
+      @message = "Thank you for your purchase!! \n
+  		We sent you an email with the details of your purchase, and we already took care of sending your ecard.
   		Feel free to continue shopping with us"
   		
       puts "****************************************"
       puts "Cookie found, preparing to send email"
       puts "****************************************"
         
-      @image = cookies[:imageurl]
+      @image = cookies[:imageurl]||= "http://artiphany.herokuapp.com/assets/logo1-5de2b0b0dd853c9cc3fdd9c1cbb1b02c.png"
       link = new_secure_link("#{Time.now.utc}--#{recipient_email}")
       sent_ecard = SentEcard.create(:recipientemail => cookies[:recipient_email],
                                   :recipientname => cookies[:recipient_name],
@@ -126,6 +126,7 @@ class EcardOrdersController < ApplicationController
       CodeNotifier.recipient(content).deliver
     else
       @message = "Your ecard was already sent, thank you!"
+      redirect_to "http://www.artiphany.herokuapp.com"
     end
   end
   
