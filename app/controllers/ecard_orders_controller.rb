@@ -98,8 +98,8 @@ class EcardOrdersController < ApplicationController
     if(recipient_email != nil)
       cookies.delete :recipient_email
       @message = "Thank you for your purchase!! \n
-  		We sent you an email with the details of your purchase, and we already took care of sending your ecard.
-  		Feel free to continue shopping with us"
+  		We sent you an email with the details. We already took care of sending your ecard.
+  		Feel free to continue shopping with us."
   		
       puts "****************************************"
       puts "Cookie found, preparing to send email"
