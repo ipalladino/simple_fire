@@ -96,6 +96,11 @@ class EcardOrdersController < ApplicationController
     puts "****************************************"
     
     if(recipient_email != nil)
+      cookies.delete :recipient_email
+      @message = "Thank you for your purchase!! <br />
+  		We sent you an email with the details of your purchase, and we already took care of sending your ecard.<br />
+  		Feel free to continue shopping with us"
+  		
       puts "****************************************"
       puts "Cookie found, preparing to send email"
       puts "****************************************"
@@ -119,6 +124,8 @@ class EcardOrdersController < ApplicationController
                  :sendername => cookies[:sender_name],
                  :image => cookies[:imageurl]}
       CodeNotifier.recipient(content).deliver
+    else
+      @message = "Your ecard was already sent, thank you!"
     end
   end
   
