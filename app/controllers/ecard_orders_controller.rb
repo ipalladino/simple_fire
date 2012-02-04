@@ -126,7 +126,7 @@ class EcardOrdersController < ApplicationController
       CodeNotifier.recipient(content).deliver
     else
       @message = "Your ecard was already sent, thank you!"
-      redirect_to "http://www.artiphany.herokuapp.com"
+      redirect_to "http://artiphany.herokuapp.com/"
     end
   end
   
