@@ -121,6 +121,11 @@ class PagesController < ApplicationController
     ecard_variant_id = params[:ecard_variant_id]
     imageurl = params[:image]
     
+    data = [:recipient_name => recipient_name,
+            :recipient_email => recipient_email,
+            :sender_name => sender_name,
+            :sender_email => sender_email]
+    
     cookies[:recipient_name] = { :value => recipient_name, :expires => 1.hour.from_now }
     cookies[:recipient_email] = { :value => recipient_email, :expires => 1.hour.from_now }
     cookies[:sender_name] = { :value => sender_name, :expires => 1.hour.from_now }
@@ -131,7 +136,7 @@ class PagesController < ApplicationController
     cookies[:imageurl] = { :value => imageurl, :expires => 1.hour.from_now }
     
     data = "All vars loaded succesfully"
-    render :text => data
+    render :xml => data
   end
   
 end
