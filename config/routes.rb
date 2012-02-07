@@ -15,6 +15,7 @@ D2mECards::Application.routes.draw do
   match '/app', :to =>  'pages#app'
   match '/testnewapp', :to =>  'pages#testnewapp'
   match '/getproducts', :to => 'pages#getproducts'
+  match '/do_special_request', :to => 'pages#do_special_request'
   match '/addtocart', :to => 'pages#addtocart'
   match '/paywithpaypal', :to => 'pages#paywithpaypal'
   match '/viewcookie', :to => 'pages#viewcookie'

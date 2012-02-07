@@ -111,4 +111,27 @@ class PagesController < ApplicationController
     end    
   end
   
+  def do_special_request
+    recipient_name = params[:recipient_name]
+    recipient_email = params[:recipient_email]
+    sender_name = params[:sender_name]
+    sender_email = params[:sender_email]
+    message1 = params[:message1]
+    message2 = params[:message2]
+    ecard_variant_id = params[:ecard_variant_id]
+    imageurl = params[:image]
+    
+    cookies[:recipient_name] = { :value => recipient_name, :expires => 1.hour.from_now }
+    cookies[:recipient_email] = { :value => recipient_email, :expires => 1.hour.from_now }
+    cookies[:sender_name] = { :value => sender_name, :expires => 1.hour.from_now }
+    cookies[:sender_email] = { :value => sender_email, :expires => 1.hour.from_now }
+    cookies[:message1] = { :value => message1, :expires => 1.hour.from_now }
+    cookies[:message2] = { :value => message2, :expires => 1.hour.from_now }
+    cookies[:ecard_variant_id] = { :value => ecard_variant_id, :expires => 1.hour.from_now }
+    cookies[:imageurl] = { :value => imageurl, :expires => 1.hour.from_now }
+    
+    data = "All vars loaded succesfully"
+    render :text => data
+  end
+  
 end
