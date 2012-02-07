@@ -134,8 +134,8 @@ class PagesController < ApplicationController
     cookies[:message2] = { :value => message2, :expires => 1.hour.from_now }
     cookies[:ecard_variant_id] = { :value => ecard_variant_id, :expires => 1.hour.from_now }
     cookies[:imageurl] = { :value => imageurl, :expires => 1.hour.from_now }
-    
-    data = "All vars loaded succesfully"
+
+    #data = "All vars loaded succesfully"
     render :xml => data
   end
   
