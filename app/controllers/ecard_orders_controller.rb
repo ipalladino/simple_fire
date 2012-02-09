@@ -126,11 +126,9 @@ class EcardOrdersController < ApplicationController
                  :image => cookies[:imageurl]}
       CodeNotifier.recipient(content).deliver
     else
-      @message = "Gizmo confirms that your e-card has been sent.
-      Details have been sent to the e-mail address you
-      provided." 
-      @thank_you = "Thank you for shopping with us!"
-      #redirect_to "http://artiphany.herokuapp.com/"
+      @message = "There is no ecard set to be sent" 
+      @thank_you = "I'm sorry!"
+      redirect_to "http://artiphany.herokuapp.com/"
     end
   end
   
