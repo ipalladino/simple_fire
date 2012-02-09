@@ -128,7 +128,7 @@ class EcardOrdersController < ApplicationController
     else
       @message = "There is no ecard set to be sent" 
       @thank_you = "I'm sorry!"
-      redirect_to "http://artiphany.herokuapp.com/"
+      #redirect_to "http://artiphany.herokuapp.com/"
     end
   end
   
