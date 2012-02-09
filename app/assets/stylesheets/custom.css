@@ -35,6 +35,12 @@ header {
     margin-left:1px;
 }
 
+.signature {
+    width:200px;
+    height:40px;
+    float:right;
+}
+
 header img {
     padding: 1em;
     background: #fff;

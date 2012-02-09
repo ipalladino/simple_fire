@@ -130,7 +130,7 @@ class EcardOrdersController < ApplicationController
       Details have been sent to the e-mail address you
       provided." 
       @thank_you = "Thank you for shopping with us!"
-      redirect_to "http://artiphany.herokuapp.com/"
+      #redirect_to "http://artiphany.herokuapp.com/"
     end
   end
   
