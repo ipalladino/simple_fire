@@ -97,9 +97,10 @@ class EcardOrdersController < ApplicationController
     
     if(recipient_email != nil)
       cookies.delete :recipient_email
-      @message = "Thank you for your purchase!! \n
-  		We sent you an email with the details. We already took care of sending your ecard.
-  		Feel free to continue shopping with us."
+      @message = "Gizmo confirms that your e-card has been sent.
+      Details have been sent to the e-mail address you
+      provided."
+      @thank_you = "Thank you for shopping with us!"
   		
       puts "****************************************"
       puts "Cookie found, preparing to send email"
@@ -125,7 +126,10 @@ class EcardOrdersController < ApplicationController
                  :image => cookies[:imageurl]}
       CodeNotifier.recipient(content).deliver
     else
-      @message = "Your ecard was already sent, thank you!"
+      @message = "Gizmo confirms that your e-card has been sent.
+      Details have been sent to the e-mail address you
+      provided." 
+      @thank_you = "Thank you for shopping with us!"
       redirect_to "http://artiphany.herokuapp.com/"
     end
   end

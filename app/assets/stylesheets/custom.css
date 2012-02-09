@@ -138,6 +138,23 @@ a.signup_button {
     height:540px;
 }
 
+.gizmo {
+    float:left;
+    margin-left:165px;
+    height:auto;
+}
+
+.gizmo_message {
+    margin-top:200px;
+    text-align:left;
+    width:328px;
+    float:left;
+    font-size:15px;
+    margin-left:10px;
+    color:#999999;
+    height:auto;
+}
+
 
 /* Round corners */
 
