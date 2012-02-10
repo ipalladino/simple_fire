@@ -105,7 +105,7 @@ class EcardOrdersController < ApplicationController
       puts "****************************************"
       puts "Cookie found, preparing to send email"
       puts "****************************************"
-        
+      the_ecard = Ecard.find_by_variant_id(cookies[:ecard_variant_id])  
       @image = cookies[:imageurl]||= "http://artiphany.herokuapp.com/assets/logo1-5de2b0b0dd853c9cc3fdd9c1cbb1b02c.png"
       link = new_secure_link("#{Time.now.utc}--#{recipient_email}")
       sent_ecard = SentEcard.create(:recipientemail => cookies[:recipient_email],
@@ -114,8 +114,9 @@ class EcardOrdersController < ApplicationController
                                   :message2 => cookies[:message2],
                                   :nametoshow => cookies[:sender_name],
                                   :senderemail => cookies[:sender_email],
-                                  :ecard_id => cookies[:ecard_variant_id],
+                                  :ecard_id => the_ecard.id,
                                   :securelink => link)
+      
 
       puts "attemping to send email"
       content = {:email => cookies[:recipient_email], 
