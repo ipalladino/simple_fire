@@ -96,7 +96,6 @@ class EcardOrdersController < ApplicationController
     puts "****************************************"
     
     if(recipient_email != nil)
-      cookies.delete :recipient_email
       @message = "Gizmo confirms that your e-card has been sent.
       Details have been sent to the e-mail address you
       provided."
@@ -126,6 +125,7 @@ class EcardOrdersController < ApplicationController
                  :sendername => cookies[:sender_name],
                  :image => cookies[:imageurl]}
       CodeNotifier.recipient(content).deliver
+      cookies.delete :recipient_email
     else
       @message = "There is no ecard set to be sent" 
       @thank_you = "I'm sorry!"
