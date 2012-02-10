@@ -1,24 +1,24 @@
-	<!-- div style="width:960px; margin-left:100px;">
-		<p>
-			Artiphany is undergoing maintenance and the eCards application can experience some unexpected behavior.  
-		</p>
-	</div -->
-	<div id="flash_content">
-	  <strong>You need to upgrade your Flash Player</strong>
-	  This is replaced by the Flash content. 
-	  Place your alternate content here and users without the
-	  Flash plugin or with Javascript turned off will see this.
-	  Content here allows you to leave out <code>noscript</code>
-	  tags.
-	</div>
+<!-- div style="width:960px; margin-left:100px;">
+	<p>
+		Artiphany is undergoing maintenance and the eCards application can experience some unexpected behavior.  
+	</p>
+</div -->
+<div id="flash_content">
+  <strong>You need to upgrade your Flash Player</strong>
+  This is replaced by the Flash content. 
+  Place your alternate content here and users without the
+  Flash plugin or with Javascript turned off will see this.
+  Content here allows you to leave out <code>noscript</code>
+  tags.
+</div>
 
-	<script type="text/javascript">
-		var attributes = {};
-		var flashvars = {};
-		var params = {};
-		params.scale =  "noscale";
-		params.wmode =  "transparent";
-		params.allowScriptAccess = "sameDomain";
-		params.menu = "false"
-		swfobject.embedSWF("D2MeCards.swf?asd=<%= rand(1000000000) %>", "flash_content", "960", "540", "9.0.0","", flashvars, params, attributes);
-	</script>
+<script type="text/javascript">
+	var attributes = {};
+	var flashvars = {};
+	var params = {};
+
+	params.wmode =  "transparent";
+	params.menu = "false"
+	params.allowScriptAccess = "sameDomain";
+	swfobject.embedSWF("D2MeCardsTest.swf?asd=<%= rand(1000000000) %>", "flash_content", "100%", "100%", "9.0.0","", flashvars, params, attributes);
+</script>
