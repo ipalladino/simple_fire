@@ -14,6 +14,12 @@ class PagesController < ApplicationController
     @title = "Home"
   end
   
+  def support_request_sent
+    @title = "Your support request has been sent"
+    @message = "Mr O'hare is analyzing your request as we speak. He will get back to you in less than 24 hours"
+    @thank_you = "Thank you for choosing us!"
+  end
+  
   def support
     @title = "Support"
     @conditional = "if(this.value == 'Insert your message here') { this.value = ''; }"
@@ -28,6 +34,7 @@ class PagesController < ApplicationController
           :message => params[:message]
         }
         CodeNotifier.support_mail(content).deliver
+        redirect_to "http://artiphany.herokuapp.com/support_request_sent"
       else
         @message = "You need to fill all the fields, thank you."
       end

@@ -17,4 +17,8 @@ module ApplicationHelper
   def gizmo
     image_tag("gizmo.png", :alt => "Gizmo", :class => "logo")
   end
+  
+  def ohare
+    image_tag("ohare.png", :alt => "Mr Ohare", :class => "logo")
+  end
 end
