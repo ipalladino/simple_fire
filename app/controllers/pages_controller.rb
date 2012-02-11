@@ -16,7 +16,7 @@ class PagesController < ApplicationController
   
   def support
     @title = "Support"
-    
+    @conditional = "if(this.value == 'Insert your message here') { this.value = ''; }"
     if params[:name] !=nil
       
       if params[:name] != "" and params[:email] != "" and params[:message] != ""

@@ -12,7 +12,7 @@
   <li><%= label_tag(:email, "Your email:") %></li>
   <li><%= text_field_tag(:email) %></li>
   <li><%= label_tag(:message, "Your message:") %></li>
-  <li><%= text_area_tag(:message, "Insert your message here", :size => "24x6") %></li>
+  <li><%= text_area_tag(:message, "Insert your message here", :size => "24x6", :onclick => raw(@conditional)) %></li>
   <li><%= submit_tag("Send") %></li>
 </ul>
 <% end %>
