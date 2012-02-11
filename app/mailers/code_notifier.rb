@@ -18,5 +18,17 @@ class CodeNotifier < ActionMailer::Base
          :bcc => ["ignacio@simplecustomsolutions.com", "Order Watcher <gabriel@simplecustomsolutions.com>"],
          :subject => messagesubject)  
   end
+  
+  def support_mail(content)
+    @content = content
+    name = content[:name]
+    email = content[:email]
+    message = content[:message]
+    subject = "Support request from " + email
+    mail(:to => "ignacio@simplecustomsolutions.com",
+         :subject => subject
+    )
+  end
+    
 end
 

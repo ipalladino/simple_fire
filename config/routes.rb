@@ -19,6 +19,7 @@ D2mECards::Application.routes.draw do
   match '/addtocart', :to => 'pages#addtocart'
   match '/paywithpaypal', :to => 'pages#paywithpaypal'
   match '/viewcookie', :to => 'pages#viewcookie'
+  match '/support', :to => 'pages#support'
   
   match '/transactionsuccess', :to => 'ecard_orders#transactionsuccess'
   match '/handleorder', :to => 'ecard_orders#handleorder'

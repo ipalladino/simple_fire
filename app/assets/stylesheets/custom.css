@@ -11,6 +11,31 @@ section h1 {
     font-size:200%;
 }
 
+#validation {
+    color:red;
+}
+
+#html_content {
+    font-size:100%;
+    width:85%;
+    margin:0 auto;
+    color:#888888;
+    height:auto;
+}
+
+#html_content h1 {
+    color:#888888;
+}
+
+#html_content li {
+    color:#888888;
+    list-style-type:none;
+}
+
+textarea {
+    font-family:"Arial";
+}
+
 .separator {
     width:820px;
     margin:0 auto;
@@ -51,8 +76,9 @@ section {
     font-size: 120%;
     /* padding: 20px; */
     /* background: #fff; */
-    height:538px;
+    height:auto;
     padding-bottom: 15px;
+    
 }
 
 .section2 {

@@ -13,6 +13,29 @@ class PagesController < ApplicationController
   def home
     @title = "Home"
   end
+  
+  def support
+    @title = "Support"
+    
+    if params[:name] !=nil
+      
+      if params[:name] != "" and params[:email] != "" and params[:message] != ""
+        
+        @message = "Thank you, your message has been sent."
+        content = {
+          :name => params[:name],
+          :email => params[:email],
+          :message => params[:message]
+        }
+        CodeNotifier.support_mail(content).deliver
+      else
+        @message = "You need to fill all the fields, thank you."
+      end
+    else
+      @message = ""
+    end
+    
+  end
 
   def contact
     @title = "Contact"
