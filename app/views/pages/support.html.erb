@@ -1,0 +1,19 @@
+<section id="html_content">
+<h1>Support</h1>
+
+<p>Send us your question and we will answer within 24hs <br /> 
+<span id="validation"><%= @message %></span></p>
+
+<%= form_tag("/support", :method => "post") do %>
+<ul>
+
+  <li><%= label_tag(:name, "Your name:") %></li>
+  <li><%= text_field_tag(:name) %></li>
+  <li><%= label_tag(:email, "Your email:") %></li>
+  <li><%= text_field_tag(:email) %></li>
+  <li><%= label_tag(:message, "Your message:") %></li>
+  <li><%= text_area_tag(:message, "Insert your message here", :size => "24x6") %></li>
+  <li><%= submit_tag("Send") %></li>
+</ul>
+<% end %>
+<section>
