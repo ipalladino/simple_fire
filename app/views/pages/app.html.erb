@@ -1,3 +1,4 @@
+
 <!-- div style="width:960px; margin-left:100px;">
 	<p>
 		Artiphany is undergoing maintenance and the eCards application can experience some unexpected behavior.  
@@ -16,9 +17,9 @@
 	var attributes = {};
 	var flashvars = {};
 	var params = {};
-
+	
 	params.wmode =  "transparent";
-	params.menu = "false"
 	params.allowScriptAccess = "sameDomain";
-	swfobject.embedSWF("D2MeCards.swf?asd=<%= rand(1000000000) %>", "flash_content", "100%", "100%", "9.0.0","", flashvars, params, attributes);
+	params.menu = "false"
+	swfobject.embedSWF("D2MeCards.swf?asd=<%= rand(1000000000) %>", "flash_content", "960", "540", "9.0.0","", flashvars, params, attributes);
 </script>
