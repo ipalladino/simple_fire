@@ -167,6 +167,7 @@ a.signup_button {
     margin-top:-15px;
     margin-left:0px;
     text-align: center;
+    min-height:600px;
 }
 
 .gizmo {
