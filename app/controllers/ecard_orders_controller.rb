@@ -305,7 +305,8 @@ class EcardOrdersController < ApplicationController
     sentecard = SentEcard.find_by_securelink(code)
     e = Ecard.find_by_id(sentecard.ecard_id)
     filename = e[:filename].split(".")
-    @video_file = "http://www.simplecustomsolutions.com/animations/" + filename[0] + ".mp4"   
+    @video_file = "http://www.simplecustomsolutions.com/animations/" + filename[0] + ".mp4"
+    render 'view_ecard_mobile.html.erb'   
   end
   
   def requestmessages
