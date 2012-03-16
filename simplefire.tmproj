@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>app/assets/stylesheets/custom.css</string>
+	<string>public/demo_arti/view_video2.html</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -21,28 +21,70 @@
 	<integer>200</integer>
 	<key>metaData</key>
 	<dict>
-		<key>app/assets/stylesheets/custom.css</key>
+		<key>app/controllers/pages_controller.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>20</integer>
+				<integer>41</integer>
 				<key>line</key>
-				<integer>169</integer>
+				<integer>59</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
-			<integer>142</integer>
+			<integer>33</integer>
 		</dict>
-		<key>app/views/ecard_orders/viewecard.html.erb</key>
+		<key>app/controllers/sent_ecards_controller.rb</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>97</integer>
+				<integer>0</integer>
 				<key>line</key>
-				<integer>18</integer>
+				<integer>0</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>config/routes.rb</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>68</integer>
+				<key>line</key>
+				<integer>25</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>0</integer>
+		</dict>
+		<key>public/demo_arti/demo.html</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>125</integer>
+				<key>line</key>
+				<integer>71</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>42</integer>
+		</dict>
+		<key>public/demo_arti/view_video.html</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>0</integer>
 			</dict>
 			<key>columnSelection</key>
 			<false/>
@@ -53,26 +95,26 @@
 			<key>selectFrom</key>
 			<dict>
 				<key>column</key>
-				<integer>100</integer>
+				<integer>7</integer>
 				<key>line</key>
-				<integer>18</integer>
+				<integer>21</integer>
 			</dict>
 			<key>selectTo</key>
 			<dict>
 				<key>column</key>
-				<integer>97</integer>
+				<integer>0</integer>
 				<key>line</key>
-				<integer>18</integer>
+				<integer>0</integer>
 			</dict>
 		</dict>
-		<key>app/views/pages/app.html.erb</key>
+		<key>public/demo_arti/view_video2.html</key>
 		<dict>
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>31</integer>
+				<integer>67</integer>
 				<key>line</key>
-				<integer>20</integer>
+				<integer>17</integer>
 			</dict>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
@@ -82,9 +124,12 @@
 	</dict>
 	<key>openDocuments</key>
 	<array>
-		<string>app/views/pages/app.html.erb</string>
-		<string>app/views/ecard_orders/viewecard.html.erb</string>
-		<string>app/assets/stylesheets/custom.css</string>
+		<string>app/controllers/sent_ecards_controller.rb</string>
+		<string>public/demo_arti/demo.html</string>
+		<string>public/demo_arti/view_video2.html</string>
+		<string>config/routes.rb</string>
+		<string>public/demo_arti/view_video.html</string>
+		<string>app/controllers/pages_controller.rb</string>
 	</array>
 	<key>showFileHierarchyDrawer</key>
 	<true/>
