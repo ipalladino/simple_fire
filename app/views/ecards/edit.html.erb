@@ -1,0 +1,27 @@
+<h1>Ecards: Edit</h1>
+<ul>
+<%= form_tag(ecard_path(@ecard.id), :method => "put") do %>
+	<%= hidden_field_tag 'id', @ecard.id %>
+
+	<li><%= label_tag(:title, "Title:") %></li>
+	<li><%= text_field_tag(:title, @ecard.title) %></li>
+	
+	<li><%= label_tag(:description, "Description:") %></li>
+	<li><%= text_field_tag(:description, @ecard.description) %></li>
+	
+	<li><%= label_tag(:filename, "FLA Filename:") %></li>
+	<li><%= text_field_tag(:filename, @ecard.filename) %></li>
+	
+	<li><%= label_tag(:video_file, "Video Filename:") %></li>
+	<li><%= text_field_tag(:video_file, @ecard.video_file) %></li>
+	
+	<li><%= label_tag(:price, "Price:") %></li>
+	<li><%= text_field_tag(:price, @ecard.price) %></li>
+	
+	<li><%= label_tag(:image, "Image:") %></li>
+	<li><%= text_field_tag(:image, @ecard.image) %></li>
+	
+
+  <li><%= submit_tag("Update") %></li>
+<% end %>
+</ul>

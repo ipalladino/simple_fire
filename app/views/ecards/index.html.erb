@@ -1,0 +1,30 @@
+<h1>Ecards: list</h1>
+<%= link_to "New ecard" , new_ecard_path %>
+<table>
+	<tr>
+	  <td><b>id</b></td>
+      <td><b>filename</b></td>
+	  <td><b>description</b></td>
+	  <td><b>image</b></td>
+	  <td><b>price</b></td>
+	  <td><b>video_file</b></td>
+	  <td><b>filename</b></td>
+	  <td><b>delete</b></td>
+	  <td><b>edit</b></td>
+    </tr>
+  <% @ecards.each do |ecard| %>
+    <tr>
+	  <td><%= ecard.id %></td>
+      <td><%= link_to ecard.filename , ecard_path(ecard) %></td>
+	  <td><%= ecard.description %></td>
+	  <td><%= ecard.image %></td>
+	  <td><%= ecard.price %></td>
+	  <td><%= ecard.video_file %></td>
+	  <td><%= ecard.filename %></td>
+	  <td><%= link_to 'delete', ecard_path(ecard), :method => :delete %></td>
+	  <td><%= link_to 'edit', edit_ecard_path(ecard) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to "New ecard" , new_ecard_path %>

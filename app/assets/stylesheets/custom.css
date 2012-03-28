@@ -48,6 +48,10 @@ body {
     background-image: url('/bg-slate.jpg');
 }
 
+body ul {
+    list-style-type:none;
+}
+
 header {
     background: #fff;
     width:862px;

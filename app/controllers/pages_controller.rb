@@ -129,17 +129,22 @@ class PagesController < ApplicationController
   end
   
   def getproducts    
+    p "Setting API and PASS"
     api = "80a9b470d0dd9ac4628c98f093a6d758"
     password = "79a34b79f0dbafa7327581d04535f8a7"
     http = Net::HTTP.new('artiphany.myshopify.com')
     #http.use_ssl = true
     http.start do |http|
-      req = Net::HTTP::Get.new('/admin/products.json')
+      p "Trying to connect to shopify"
+      p req = Net::HTTP::Get.new('/admin/products.json')
       # we make an HTTP basic auth by passing the
       # username and password
-      req.basic_auth api, password
+      p req.basic_auth api, password
       resp, data = http.request(req)
-      render :json => data 
+      puts "Response #{resp.code} #{resp.message}:
+                #{resp.body}"
+      #puts YAML::dump(resp)
+      render :json => resp.body
     end    
   end
   

@@ -1,5 +1,10 @@
 D2mECards::Application.routes.draw do
 
+  get "ecards/new"
+  get "ecards/list"
+  resources :ecards
+  
+
   get "ecard_orders/new"
 
   get "sent_ecards/new"

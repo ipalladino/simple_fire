@@ -1,0 +1,25 @@
+<h1>Ecards: New</h1>
+<ul>
+<%= form_tag("/ecards", :method => "post") do %>
+	<li><%= label_tag(:title, "Title:") %></li>
+	<li><%= text_field_tag(:title) %></li>
+	
+	<li><%= label_tag(:description, "Description:") %></li>
+	<li><%= text_field_tag(:description) %></li>
+	
+	<li><%= label_tag(:filename, "FLA Filename:") %></li>
+	<li><%= text_field_tag(:filename) %></li>
+	
+	<li><%= label_tag(:video_file, "Video Filename:") %></li>
+	<li><%= text_field_tag(:video_file) %></li>
+	
+	<li><%= label_tag(:price, "Price:") %></li>
+	<li><%= text_field_tag(:price) %></li>
+	
+	<li><%= label_tag(:image, "Image:") %></li>
+	<li><%= text_field_tag(:image) %></li>
+	
+
+  <li><%= submit_tag("New ecard") %></li>
+<% end %>
+</ul>
