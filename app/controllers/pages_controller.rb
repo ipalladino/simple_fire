@@ -26,32 +26,32 @@ class PagesController < ApplicationController
     notify = Paypal::Notification.new(request.raw_post)
 
     #we must make sure this transaction id is not allready completed
-    if !Trans.count("*", :conditions => ["paypal_transaction_id = ?", notify.transaction_id]).zero?
+    #if !Trans.count("*", :conditions => ["paypal_transaction_id = ?", notify.transaction_id]).zero?
        # do some logging here...
-       p "we must make sure this transaction id is not allready completed"
-    end
+    #   puts "we must make sure this transaction id is not allready completed"
+    #end
 
 
     if notify.acknowledge
       begin
         if notify.complete?
            #transaction complete.. add your business logic here
-           p request.raw_post
+           puts request.raw_post
         else
            #Reason to be suspicious
-           p "reason to be suspicious"
+           puts "reason to be suspicious"
         end
 
       rescue => e
         #Houston we have a bug
-        p "Houston we have a bug"
+        puts "Houston we have a bug"
       ensure
         #make sure we logged everything we must
-        p "make sure we logged everything we must"
+        puts "make sure we logged everything we must"
       end
     else #transaction was not acknowledged
       # another reason to be suspicious
-      p "another reason to be suspicious"
+      puts "another reason to be suspicious"
     end
 
     render :nothing => true
