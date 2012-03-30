@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120325203923) do
+ActiveRecord::Schema.define(:version => 20120328035025) do
 
   create_table "ecard_orders", :force => true do |t|
     t.string   "code"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(:version => 20120325203923) do
     t.float    "price"
     t.string   "video_file"
     t.string   "image"
+    t.string   "tags"
   end
 
   create_table "senders", :force => true do |t|

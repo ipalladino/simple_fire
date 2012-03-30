@@ -7,8 +7,11 @@
 	<li><%= text_field_tag(:title, @ecard.title) %></li>
 	
 	<li><%= label_tag(:description, "Description:") %></li>
-	<li><%= text_field_tag(:description, @ecard.description) %></li>
+	<li><%= text_area_tag(:description, @ecard.description, :class => "description") %></li>
 	
+	<li><%= label_tag(:tags, "Tags:") %></li>
+	<li><%= text_field_tag(:tags, @ecard.tags) %></li>
+
 	<li><%= label_tag(:filename, "FLA Filename:") %></li>
 	<li><%= text_field_tag(:filename, @ecard.filename) %></li>
 	
@@ -20,7 +23,6 @@
 	
 	<li><%= label_tag(:image, "Image:") %></li>
 	<li><%= text_field_tag(:image, @ecard.image) %></li>
-	
 
   <li><%= submit_tag("Update") %></li>
 <% end %>

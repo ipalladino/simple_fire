@@ -200,6 +200,12 @@ a.signup_button {
   border-radius:         15px;
 }
 
+textarea.description {
+    font-size:11px;
+    width:200px;
+    height: 60px;
+}
+
 /* footer */
 footer {
   text-align: center;

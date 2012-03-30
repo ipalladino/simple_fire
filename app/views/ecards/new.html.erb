@@ -1,14 +1,17 @@
 <h1>Ecards: New</h1>
 <ul>
-<%= form_tag("/ecards", :method => "post") do %>
+<%= form_tag("/ecards", :method => "post", :multipart => true) do %>
 	<li><%= label_tag(:title, "Title:") %></li>
 	<li><%= text_field_tag(:title) %></li>
 	
 	<li><%= label_tag(:description, "Description:") %></li>
-	<li><%= text_field_tag(:description) %></li>
+	<li><%= text_area_tag(:description, nil, :class => "description") %></li>
 	
-	<li><%= label_tag(:filename, "FLA Filename:") %></li>
-	<li><%= text_field_tag(:filename) %></li>
+	<li><%= label_tag(:tags, "Tags:") %></li>
+	<li><%= text_field_tag(:tags) %></li>
+	
+	<li><%= label_tag(:swf_file, "SWF:") %></li>
+	<li><%= file_field_tag(:swf_file) %></li>
 	
 	<li><%= label_tag(:video_file, "Video Filename:") %></li>
 	<li><%= text_field_tag(:video_file) %></li>
@@ -16,8 +19,8 @@
 	<li><%= label_tag(:price, "Price:") %></li>
 	<li><%= text_field_tag(:price) %></li>
 	
-	<li><%= label_tag(:image, "Image:") %></li>
-	<li><%= text_field_tag(:image) %></li>
+	<li><%= label_tag(:image_file, "Image:") %></li>
+	<li><%= text_field_tag(:image_file) %></li>
 	
 
   <li><%= submit_tag("New ecard") %></li>
