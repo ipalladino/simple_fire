@@ -28,6 +28,7 @@ class PagesController < ApplicationController
     #we must make sure this transaction id is not allready completed
     if !Trans.count("*", :conditions => ["paypal_transaction_id = ?", notify.transaction_id]).zero?
        # do some logging here...
+       p "we must make sure this transaction id is not allready completed"
     end
 
 
@@ -38,15 +39,19 @@ class PagesController < ApplicationController
            p request.raw_post
         else
            #Reason to be suspicious
+           p "reason to be suspicious"
         end
 
       rescue => e
         #Houston we have a bug
+        p "Houston we have a bug"
       ensure
         #make sure we logged everything we must
+        p "make sure we logged everything we must"
       end
     else #transaction was not acknowledged
       # another reason to be suspicious
+      p "another reason to be suspicious"
     end
 
     render :nothing => true
