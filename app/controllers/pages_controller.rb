@@ -21,6 +21,39 @@ class PagesController < ApplicationController
     @thank_you = "Thank you for choosing us!"
   end
   
+  def transaction
+    # Create a notify object we must
+    notify = Paypal::Notification.new(request.raw_post)
+
+    #we must make sure this transaction id is not allready completed
+    if !Trans.count("*", :conditions => ["paypal_transaction_id = ?", notify.transaction_id]).zero?
+       # do some logging here...
+    end
+
+
+    if notify.acknowledge
+      begin
+        if notify.complete?
+           #transaction complete.. add your business logic here
+           p request.raw_post
+        else
+           #Reason to be suspicious
+        end
+
+      rescue => e
+        #Houston we have a bug
+      ensure
+        #make sure we logged everything we must
+      end
+    else #transaction was not acknowledged
+      # another reason to be suspicious
+    end
+
+    render :nothing => true
+  end
+
+  
+  
   def support
     @title = "Support"
     @conditional = "if(this.value == 'Insert your message here') { this.value = ''; }"
