@@ -10,17 +10,17 @@
 	<li><%= label_tag(:tags, "Tags:") %></li>
 	<li><%= text_field_tag(:tags) %></li>
 	
+	<li><%= label_tag(:price, "Price:") %></li>
+	<li><%= text_field_tag(:price) %></li>
+	
 	<li><%= label_tag(:swf_file, "SWF:") %></li>
 	<li><%= file_field_tag(:swf_file) %></li>
 	
 	<li><%= label_tag(:video_file, "Video Filename:") %></li>
-	<li><%= text_field_tag(:video_file) %></li>
-	
-	<li><%= label_tag(:price, "Price:") %></li>
-	<li><%= text_field_tag(:price) %></li>
+	<li><%= file_field_tag(:video_file) %></li>
 	
 	<li><%= label_tag(:image_file, "Image:") %></li>
-	<li><%= text_field_tag(:image_file) %></li>
+	<li><%= file_field_tag(:image_file) %></li>
 	
 
   <li><%= submit_tag("New ecard") %></li>
