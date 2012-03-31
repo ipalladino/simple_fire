@@ -30,6 +30,7 @@ class EcardsController < ApplicationController
   
   def update
     e = Ecard.find(params[:id])
+    puts "Updating all fields: Title: #{params[:title]}" 
     e.update_attributes(
       :title => params[:title],
       :description => params[:description],
