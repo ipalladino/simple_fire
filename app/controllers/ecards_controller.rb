@@ -12,7 +12,11 @@ class EcardsController < ApplicationController
   #there has to be a directory with the name ecard_videos
   
   def index
-    @ecards = Ecard.all
+    if admin?
+      @ecards = Ecard.all
+    else
+      redirect_to "/login_form"
+    end
   end
   
   def new
@@ -25,10 +29,15 @@ class EcardsController < ApplicationController
   end
   
   def edit
-    @ecard = Ecard.find(params[:id])
+    if admin?
+      @ecard = Ecard.find(params[:id])
+    else
+      redirect_to "/login_form"
+    end
   end
   
   def update
+    if admin?
     e = Ecard.find(params[:id])
     puts "Updating all fields: Title: #{params[:title]}" 
     e.update_attributes(
@@ -41,6 +50,9 @@ class EcardsController < ApplicationController
       :video_file => params[:video_file]
     )
     redirect_to :action => 'index'
+    else
+      redirect_to "/login_form"
+    end
   end
   
   def show
@@ -48,6 +60,7 @@ class EcardsController < ApplicationController
   end 
   
   def create
+    if admin?
     swf_file = params[:swf_file]
     image_file = params[:image_file]
     video_file = params[:video_file]
@@ -126,9 +139,13 @@ class EcardsController < ApplicationController
       :video_file => video_string
     )
     redirect_to :action => "index"
+    else
+      redirect_to "/login_form"
+    end
   end
   
   def destroy
+    if admin?
     #should implement destroy (ignacio)
     
     begin
@@ -185,5 +202,8 @@ class EcardsController < ApplicationController
     
     
     redirect_to :action => "index"
+    else
+      redirect_to "/login_form"
+    end
   end
 end

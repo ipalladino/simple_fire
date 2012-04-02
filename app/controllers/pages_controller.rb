@@ -21,6 +21,14 @@ class PagesController < ApplicationController
     @thank_you = "Thank you for choosing us!"
   end
   
+  def  get_encrypted_data
+    params[:price]
+  end
+  
+  def login_form
+    
+  end
+  
   def transaction
     # Create a notify object we must
     notify = Paypal::Notification.new(request.raw_post)
@@ -133,6 +141,16 @@ class PagesController < ApplicationController
     
     @image = imageurl
     #@item = ecard_variant_id
+  end
+  
+  def checkout
+    @recipient_name = params[:recipient_name]
+    @recipient_email = params[:recipient_email]
+    @sender_name = params[:sender_name]
+    @sender_email = params[:sender_email]
+    @message1 = params[:message1]
+    @image = params[:image]
+    
   end
   
   def addtocart 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120328035025) do
+ActiveRecord::Schema.define(:version => 20120401000520) do
 
   create_table "ecard_orders", :force => true do |t|
     t.string   "code"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20120328035025) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "securelink"
+    t.boolean  "sent"
   end
 
 end

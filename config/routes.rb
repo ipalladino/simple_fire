@@ -1,5 +1,11 @@
 D2mECards::Application.routes.draw do
 
+  get "sessions/new"
+  get "sessions/login"
+  resources :sessions
+  
+  match '/login_form', :to => 'pages#login_form'
+
   get "ecards/json_list"
   resources :ecards
 
@@ -12,6 +18,7 @@ D2mECards::Application.routes.draw do
   resources :users
   root :to => 'pages#app'
   
+  match '/checkout', :to =>  'pages#checkout'
   match '/requestmessages', :to =>  'ecard_orders#requestmessages'
   match '/view/ecard', :to =>  'ecard_orders#viewecard'
   match '/contact', :to =>  'pages#contact'
@@ -32,6 +39,14 @@ D2mECards::Application.routes.draw do
   match '/handleorder', :to => 'ecard_orders#handleorder'
   match '/redeemcode', :to => 'ecard_orders#redeemcode'
   match '/autoredeem', :to => 'ecard_orders#autoredeem'
+  
+  
+  
+  
+  
+  #map.resources :sessions
+  #map.login 'login', :controller => 'sessions', :action => 'new'
+  #map.logout 'logout', :controller => 'sessions', :action => 'destroy'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
