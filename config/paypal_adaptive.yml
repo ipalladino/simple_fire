@@ -1,0 +1,22 @@
+development:
+  environment: "sandbox"
+  username: "busine_1333086758_biz_api1.simplecustomsolutions.com"
+  password: "1333086783"
+  signature: "AlEVEy2NSos6n7zF9m5mUxa-Ic2JA45ABgsNQ-rOe7rsgdcxvDT-YqiP"
+  application_id: "APP-80W284485P519543T"
+
+
+test:
+  environment: "sandbox"
+  username: "busine_1333086758_biz_api1.simplecustomsolutions.com"
+  password: "1333086783"
+  signature: "AlEVEy2NSos6n7zF9m5mUxa-Ic2JA45ABgsNQ-rOe7rsgdcxvDT-YqiP"
+  application_id: "APP-80W284485P519543T"
+
+production:
+  environment: "sandbox"
+  username: "busine_1333086758_biz_api1.simplecustomsolutions.com"
+  password: "1333086783"
+  signature: "AlEVEy2NSos6n7zF9m5mUxa-Ic2JA45ABgsNQ-rOe7rsgdcxvDT-YqiP"
+  application_id: "APP-80W284485P519543T"
+  
