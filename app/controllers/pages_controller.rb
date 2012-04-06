@@ -6,6 +6,7 @@ require 'mechanize'
 require 'logger'
 require 'rexml/document'
 require 'xmlsimple'
+require 'paypal_adaptive'
 
 
 class PagesController < ApplicationController
@@ -29,9 +30,58 @@ class PagesController < ApplicationController
     
   end
   
+  def checkout
+    @recipient_name = params[:recipient_name]
+    @recipient_email = params[:recipient_email]
+    @sender_name = params[:sender_name]
+    @sender_email = params[:sender_email]
+    @message1 = params[:message1]
+    @image = params[:image]
+    @price = 1.0
+    
+    return_url = "http://artiphany.herokuapp.com/transactionsuccess"
+    ipn_url = "http://artiphany.herokuapp.com/transaction"
+    cancel_url = "http://artiphany.herokuapp.com/cancel_transaction"
+    
+    pay_request = PaypalAdaptive::Request.new
+        data = {
+          "returnUrl" => return_url,
+          "requestEnvelope" => {"errorLanguage" => "en_US"},
+          "currencyCode" => "USD",
+          "receiverList" =>
+                  { "receiver" => [
+                    {"email" => "busine_1333086758_biz@simplecustomsolutions.com", "amount"=> @price}
+                  ]},
+          "cancelUrl" => cancel_url,
+          "actionType" => "PAY",
+          "ipnNotificationUrl" => ipn_url
+        }
+
+        #To do chained payments, just add a primary boolean flag:{“receiver”=> [{"email"=>"PRIMARY", "amount"=>"100.00", "primary" => true}, {"email"=>"OTHER", "amount"=>"75.00", "primary" => false}]}
+
+        pay_response = pay_request.pay(data)
+
+        if pay_response.success?
+            # Send user to paypal
+            redirect_to pay_response.approve_paypal_payment_url
+        else
+            puts pay_response.errors.first['message']
+            #redirect_to "/", notice: "Something went wrong. Please contact support."
+        end
+  end
+  
+  
   def transaction
     # Create a notify object we must
-    notify = Paypal::Notification.new(request.raw_post)
+    #notify = Paypal::Notification.new(request.raw_post)
+    ipn = PaypalAdaptive::IpnNotification.new
+    ipn.send_back(request.raw_post)
+
+    if ipn.verified?
+      puts "IT WORKED"
+    else
+      puts "IT DIDNT WORK"
+    end
 
     #we must make sure this transaction id is not allready completed
     #if !Trans.count("*", :conditions => ["paypal_transaction_id = ?", notify.transaction_id]).zero?
@@ -40,27 +90,28 @@ class PagesController < ApplicationController
     #end
 
 
-    if notify.acknowledge
-      begin
-        if notify.complete?
-           #transaction complete.. add your business logic here
-           puts request.raw_post
-        else
-           #Reason to be suspicious
-           puts "reason to be suspicious"
-        end
+    #if notify.acknowledge
+    #  begin
+    #    if notify.complete?
+    #       #transaction complete.. add your business logic here
+    #       puts "Transaction complete"
+    #       puts request.raw_post
+    #    else
+    #       #Reason to be suspicious
+    #       puts "reason to be suspicious"
+    #    end
 
-      rescue => e
-        #Houston we have a bug
-        puts "Houston we have a bug"
-      ensure
-        #make sure we logged everything we must
-        puts "make sure we logged everything we must"
-      end
-    else #transaction was not acknowledged
-      # another reason to be suspicious
-      puts "another reason to be suspicious"
-    end
+    #  rescue => e
+    #    #Houston we have a bug
+    #    puts "Houston we have a bug"
+    #  ensure
+    #    #make sure we logged everything we must
+    #    puts "make sure we logged everything we must"
+    #  end
+    # else #transaction was not acknowledged
+    #  # another reason to be suspicious
+    #  puts "another reason to be suspicious"
+    #end
 
     render :nothing => true
   end
@@ -141,16 +192,6 @@ class PagesController < ApplicationController
     
     @image = imageurl
     #@item = ecard_variant_id
-  end
-  
-  def checkout
-    @recipient_name = params[:recipient_name]
-    @recipient_email = params[:recipient_email]
-    @sender_name = params[:sender_name]
-    @sender_email = params[:sender_email]
-    @message1 = params[:message1]
-    @image = params[:image]
-    
   end
   
   def addtocart 
