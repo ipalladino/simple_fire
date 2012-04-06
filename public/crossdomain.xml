@@ -3,6 +3,8 @@
 <cross-domain-policy>
   <allow-access-from domain="*.shopify.com" />
   <allow-access-from domain="*.myshopify.com" />
+  <allow-access-from domain="0.0.0.0:3000" />
+  <allow-access-from domain="*" />
 
   
 </cross-domain-policy>
