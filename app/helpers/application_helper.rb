@@ -21,4 +21,9 @@ module ApplicationHelper
   def ohare
     image_tag("ohare.png", :alt => "Mr Ohare", :class => "logo")
   end
+  
+  def new_secure_link(string)
+    Digest::SHA2.hexdigest(string)
+  end
+  
 end
