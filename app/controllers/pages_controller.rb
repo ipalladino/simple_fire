@@ -108,7 +108,7 @@ class PagesController < ApplicationController
         unless e == nil && params[:pay_key] == nil
           puts "ecard order exists: continue ..."
           ecard = Ecard.find_by_id(e.ecard_id)
-          puts "ecard:" + ecard
+          puts "ecard:" + ecard.title
           
           puts "attemping to send email"
           puts "email:#{e.recipientemail}"
