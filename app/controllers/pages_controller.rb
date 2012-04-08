@@ -104,8 +104,8 @@ class PagesController < ApplicationController
         puts "pay_key exists: continue..."
         pay_key = params[:pay_key]
         e = SentEcard.find_by_pay_key(pay_key)
-        puts e
-        unless e == nil && params[:pay_key]
+        puts "we found something:" + e
+        unless e == nil && params[:pay_key] == nil
           puts "ecard order exists: continue ..."
           ecard = Ecard.find_by_id(e.ecard_id)
           puts "ecard:" + ecard
