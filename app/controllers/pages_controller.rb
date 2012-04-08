@@ -114,17 +114,17 @@ class PagesController < ApplicationController
           puts "email:#{e.recipientemail}"
           puts "recipient_name:#{e.recipientname}"
           puts "link:#{e.securelink}"
-          puts "senderemail:#{e.recipientemail}"
-          puts "sendername:#{e.recipientemail}"
+          puts "senderemail:#{e.senderemail}"
+          puts "sendername:#{e.nametoshow}"
           puts "image:#{ecard.image}"
         
-          #content = {:email => e[:recipientemail], 
-          #           :recipient_name => e[:recipientname], 
-          #           :link => e[:securelink],
-          #           :senderemail => e[:nametoshow],
-          #           :sendername => e[:senderemail],
-          #           :image => ecard[:image]}
-          #CodeNotifier.recipient(content).deliver
+          content = {:email => e.recipientemail, 
+                     :recipient_name => e.recipientname, 
+                     :link => e.securelink,
+                     :senderemail => e.senderemail,
+                     :sendername => e.nametoshow,
+                     :image => ecard.image}
+          CodeNotifier.recipient(content).deliver
         end
       end
     else
