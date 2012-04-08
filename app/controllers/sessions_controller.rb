@@ -5,7 +5,11 @@ class SessionsController < ApplicationController
   def create
     session[:password] = params[:password]
     flash[:notice] = "Successfully logged in"
-    redirect_to "/ecards"
+    if(params[:previous_page] != nil && params[:previous_page] != "")
+      redirect_to "/" + params[:previous_page]
+    else
+      redirect_to "/ecards"
+    end
   end
   
   def destroy

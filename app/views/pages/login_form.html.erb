@@ -1,4 +1,6 @@
 <%= form_tag("/sessions", :method => "post", :multipart => true) do %>
   Password: <%= password_field_tag :password %>
+  <%= hidden_field_tag 'previous_page', @link %>
   <%= submit_tag "Login" %>
+  
 <% end %>

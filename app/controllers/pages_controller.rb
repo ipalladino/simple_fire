@@ -26,7 +26,7 @@ class PagesController < ApplicationController
   end
   
   def login_form
-    
+    @link = params[:previous_page]
   end
   
   def checkout

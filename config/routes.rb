@@ -8,6 +8,7 @@ D2mECards::Application.routes.draw do
 
   get "ecards/json_list"
   resources :ecards
+  resources :sent_ecards
 
   get "ecard_orders/new"
 

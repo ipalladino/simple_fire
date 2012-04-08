@@ -1,0 +1,24 @@
+<h1>SentEcards: list</h1>
+<table>
+	<tr>
+	  <td><b>ecard_id</b></td>
+	  <td><b>sent</b></td>
+	  <td><b>buyer_email</b></td>
+	  <td><b>recipient_email</b></td>
+	  <td><b>price</b></td>
+	  <td><b>delete</b></td>
+	  <td><b>edit</b></td>
+    </tr>
+  <% @ecards.each do |ecard| %>
+	<% e = Ecard.find_by_id(ecard.ecard_id) %>
+    <tr>
+	  <td><%= ecard.ecard_id %></td>
+      <td><%= ecard.sent ? "YES" : "NO" %></td>
+	  <td><%= ecard.senderemail %></td>
+	  <td><%= ecard.recipientemail %></td>
+	  <td><%= e.price %></td>
+	  <td><%= link_to 'delete', sent_ecard_path(ecard), :method => :delete %></td>
+	  <td><%= link_to 'edit', edit_sent_ecard_path(ecard) %></td>
+    </tr>
+  <% end %>
+</table>
