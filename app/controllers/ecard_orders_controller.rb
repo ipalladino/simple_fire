@@ -87,6 +87,13 @@ class EcardOrdersController < ApplicationController
     raise ActionController::RoutingError.new('Not Found')
   end
   
+  def transaction_complete
+    @message = "Gizmo confirms that your e-card has been sent.
+    Details have been sent to the e-mail address you
+    provided."
+    @thank_you = "Thank you for shopping with us!"
+  end
+  
   def transactionsuccess
     recipient_email = cookies[:recipient_email]
     #cookies[:imageurl] = { :value => imageurl, :expires => 1.hour.from_now }

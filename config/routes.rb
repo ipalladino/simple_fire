@@ -37,6 +37,7 @@ D2mECards::Application.routes.draw do
   match '/view_ecard_mobile', :to => 'ecard_orders#view_ecard_mobile'
   match '/transaction', :to => 'pages#transaction'
   match '/transactionsuccess', :to => 'ecard_orders#transactionsuccess'
+  match '/transaction_complete', :to => 'ecard_orders#transaction_complete'
   match '/handleorder', :to => 'ecard_orders#handleorder'
   match '/redeemcode', :to => 'ecard_orders#redeemcode'
   match '/autoredeem', :to => 'ecard_orders#autoredeem'

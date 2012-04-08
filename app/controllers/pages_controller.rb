@@ -41,7 +41,7 @@ class PagesController < ApplicationController
     if(e != nil)  
       @price = e.price
     
-      return_url = "http://artiphany.herokuapp.com/transactionsuccess"
+      return_url = "http://artiphany.herokuapp.com/transaction_complete"
       ipn_url = "http://artiphany.herokuapp.com/transaction"
       cancel_url = "http://artiphany.herokuapp.com/cancel_transaction"
     
