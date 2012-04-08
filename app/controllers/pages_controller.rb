@@ -102,15 +102,22 @@ class PagesController < ApplicationController
     if ipn.verified?
       puts "IT WORKED"
       e = SentEcard.find_by_pay_key(pay_key)
-      ecard = Ecard.find_by_id(e[:ecard_id])
+      ecard = Ecard.find_by_id(e.ecard_id)
       puts e
       unless e == nil
         puts "attemping to send email"
+        puts "email:#{e.recipientemail}"
+        puts "recipient_name:#{e.recipientname}"
+        puts "link:#{e.securelink}"
+        puts "senderemail:#{e.recipientemail}"
+        puts "sendername:#{e.recipientemail}"
+        puts "image:#{ecard.image}"
+        
         #content = {:email => e[:recipientemail], 
         #           :recipient_name => e[:recipientname], 
         #           :link => e[:securelink],
-        #           :senderemail => cookies[:nametoshow],
-        #           :sendername => cookies[:senderemail],
+        #           :senderemail => e[:nametoshow],
+        #           :sendername => e[:senderemail],
         #           :image => ecard[:image]}
         #CodeNotifier.recipient(content).deliver
       end
