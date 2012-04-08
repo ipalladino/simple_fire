@@ -106,13 +106,13 @@ class PagesController < ApplicationController
       puts e
       unless e == nil
         puts "attemping to send email"
-        content = {:email => e[:recipientemail], 
-                   :recipient_name => e[:recipientname], 
-                   :link => e[:securelink],
-                   :senderemail => cookies[:nametoshow],
-                   :sendername => cookies[:senderemail],
-                   :image => ecard[:image]}
-        CodeNotifier.recipient(content).deliver
+        #content = {:email => e[:recipientemail], 
+        #           :recipient_name => e[:recipientname], 
+        #           :link => e[:securelink],
+        #           :senderemail => cookies[:nametoshow],
+        #           :sendername => cookies[:senderemail],
+        #           :image => ecard[:image]}
+        #CodeNotifier.recipient(content).deliver
       end
       
     else
