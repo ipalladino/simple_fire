@@ -17,7 +17,7 @@
     <tr>
 	  <td><%= ecard.id %></td>
       <td><%= link_to ecard.title , ecard_path(ecard) %></td>
-	  <td><%= ecard.description %></td>
+	  <td><%= truncate(ecard.description, :length => 20 ) %></td>
 	  <td><%= ecard.tags %></td>
 	  <td><%= truncate(ecard.image, :length => 10) %></td>
 	  <td><%= ecard.price %></td>
