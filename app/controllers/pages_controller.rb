@@ -29,6 +29,10 @@ class PagesController < ApplicationController
     @link = params[:previous_page]
   end
   
+  def testdesign
+    
+  end
+  
   def checkout
     @recipient_name = params[:recipient_name]
     @recipient_email = params[:recipient_email]

@@ -19,6 +19,7 @@ D2mECards::Application.routes.draw do
   resources :users
   root :to => 'pages#app'
   
+  match '/testdesign', :to =>  'pages#testdesign'
   match '/checkout', :to =>  'pages#checkout'
   match '/requestmessages', :to =>  'ecard_orders#requestmessages'
   match '/view/ecard', :to =>  'ecard_orders#viewecard'
