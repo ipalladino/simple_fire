@@ -95,48 +95,6 @@ class EcardOrdersController < ApplicationController
   end
   
   def transactionsuccess
-    # Create a notify object we must
-    #notify = Paypal::Notification.new(request.raw_post)
-    ipn = PaypalAdaptive::IpnNotification.new
-    ipn.send_back(request.raw_post)
-
-    if ipn.verified?
-      puts "IT WORKED"
-      if params[:pay_key] != nil
-        puts "pay_key exists: continue..."
-        pay_key = params[:pay_key]
-        e = SentEcard.find_by_pay_key(pay_key)
-        
-        puts "we found something:" + e.securelink
-        unless e == nil && params[:pay_key] == nil
-          puts "ecard order exists: continue ..."
-          ecard = Ecard.find_by_id(e.ecard_id)
-          puts "ecard:" + ecard.title
-          e.update_attributes(:sent => true)
-          puts "attemping to send email"
-          puts "email:#{e.recipientemail}"
-          puts "recipient_name:#{e.recipientname}"
-          puts "link:#{e.securelink}"
-          puts "senderemail:#{e.senderemail}"
-          puts "sendername:#{e.nametoshow}"
-          puts "image:#{ecard.image}"
-        
-          content = {:email => e.recipientemail, 
-                     :recipient_name => e.recipientname, 
-                     :link => e.securelink,
-                     :senderemail => e.senderemail,
-                     :sendername => e.nametoshow,
-                     :image => ecard.image}
-          CodeNotifier.recipient(content).deliver
-        end
-      end
-    else
-      puts "IT DIDNT WORK"
-    end
-    render :nothing => true
-  end
-  
-  def transactionsuccessOLD
     recipient_email = cookies[:recipient_email]
     #cookies[:imageurl] = { :value => imageurl, :expires => 1.hour.from_now }
     

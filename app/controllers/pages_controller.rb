@@ -135,6 +135,7 @@ class PagesController < ApplicationController
     else
       puts "IT DIDNT WORK"
     end
+
     render :nothing => true
   end
 
@@ -189,69 +190,7 @@ class PagesController < ApplicationController
     render :text => 'Cookie successfully set: email is' + cookies[:ecardemail] + " and the id is " + cookies[:ecardid]
   end
   
-  def paywithpaypal
-    @recipient_name = params[:recipient_name]
-    @recipient_email = params[:recipient_email]
-    @sender_name = params[:sender_name]
-    @sender_email = params[:sender_email]
-    @message1 = params[:message1]
-    @image = params[:image]
-    @ecard_variant_id = params[:ecard_variant_id]
-    e = Ecard.find_by_variant_id(@ecard_variant_id)
-    if(e != nil)  
-      @price = e.price
-      @ecard_id = e.id
-      return_url = "http://artiphany.herokuapp.com/transaction_complete"
-      ipn_url = "http://artiphany.herokuapp.com/transaction"
-      cancel_url = "http://artiphany.herokuapp.com/cancel_transaction"
-    
-      pay_request = PaypalAdaptive::Request.new
-          data = {
-            "returnUrl" => return_url,
-            "requestEnvelope" => {"errorLanguage" => "en_US"},
-            "currencyCode" => "USD",
-            "receiverList" =>
-                    { "receiver" => [
-                      {"email" => "busine_1333086758_biz@simplecustomsolutions.com", "amount"=> @price}
-                    ]},
-            "cancelUrl" => cancel_url,
-            "actionType" => "PAY",
-            "ipnNotificationUrl" => ipn_url,
-          }
-        #To do chained payments, just add a primary boolean flag:{“receiver”=> [{"email"=>"PRIMARY", "amount"=>"100.00", "primary" => true}, {"email"=>"OTHER", "amount"=>"75.00", "primary" => false}]}
-
-      pay_response = pay_request.pay(data)  
-      #parsed_json = ActiveSupport::JSON.decode(pay_response)  
-      #puts parsed_json
-      puts YAML::dump(pay_response)
-      pay_key = pay_response["payKey"]
-      
-
-      if pay_response.success?
-            # Send user to paypal
-        link = new_secure_link("#{Time.now.utc}--#{@recipient_email}")
-        
-        sent_ecard = SentEcard.create(
-                        :recipientemail => @recipient_email,
-                        :recipientname => @recipient_name,
-                        :message1 => @message1,
-                        :message2 => "",
-                        :nametoshow => @sender_name,
-                        :senderemail => @sender_email,
-                        :ecard_id => @ecard_id,
-                        :securelink => link,
-                        :sent => false,
-                        :pay_key => pay_key
-        )
-        redirect_to pay_response.approve_paypal_payment_url
-      else
-        puts pay_response.errors.first['message']
-        #redirect_to "/", notice: "Something went wrong. Please contact support."
-      end
-    end
-  end 
-  
-  def paywithpaypalOLD
+  def paywithpaypal 
     #email = params[:email]    
     #variant_id = params[:item]
     #imageurl = params[:image]
@@ -276,7 +215,6 @@ class PagesController < ApplicationController
     
     @image = imageurl
     #@item = ecard_variant_id
-    
   end
   
   def addtocart 
