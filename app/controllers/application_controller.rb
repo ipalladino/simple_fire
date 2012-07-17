@@ -4,7 +4,4 @@ class ApplicationController < ActionController::Base
   def admin?
     session[:password] == 'leapforlove'
   end
-
-  
-  
 end
