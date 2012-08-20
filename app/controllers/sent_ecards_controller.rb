@@ -12,7 +12,7 @@ class SentEcardsController < ApplicationController
   end
   
   def json_list
-    ecards = SentEcard.find :all
+    ecards = SentEcard.all
     render :json => ecards
   end
   

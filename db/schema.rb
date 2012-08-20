@@ -61,4 +61,6 @@ ActiveRecord::Schema.define(:version => 20120407220325) do
     t.string   "pay_key"
   end
 
+  add_index "sent_ecards", ["ecard_id"], :name => "index_sent_ecards_on_ecard_id"
+
 end

@@ -13,6 +13,7 @@ gem "actionmailer", "~> 3.1.1"
 gem 'activemerchant'
 gem "paypal", "~> 2.0.0"
 gem 'paypal_adaptive'
+gem 'therubyracer'
 
 group :production do
   gem "pg", "~> 0.11.0"

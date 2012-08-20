@@ -27,4 +27,30 @@ D2mECards::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # CUSTOM SETTINGS
+
+  config.paypal_return_url = 'http://77.28.98.73:8202/transaction_complete'
+  config.paypal_ipn_url = 'http://77.28.98.73:8202/transaction'
+  config.paypal_cancel_url = 'http://77.28.98.73:8202/cancel_transaction'
+  config.paypal_currentcy = 'USD'
+  config.paypal_receiver_email = 'cdeyan_1338373228_biz@yahoo.com'
+
+  config.ftp_server = '77.28.98.73'
+  config.ftp_user = 'rails'
+  config.ftp_password = 'r@1L5l0l'
+  config.ftp_swf_dir = '/artiphany_assets/ecard_swfs/'
+  config.ftp_images_dir = '/artiphany_assets/ecard_images/'
+  config.ftp_videos_dir = '/artiphany_assets/ecard_videos/'
+  config.ftp_artiphany_assets_dir = '/artiphany_assets/'
+
+  config.video_files_url = 'http://77.28.98.73:8202/animations/'
+
+  config.email_from = 'webcomposer.info@gmail.com'
+  config.email_return_path = 'system@example.com'
+  config.email_bcc = ['cdejan@gmail.com', 'webcomposer.info@gmail.com']
+  config.email_support = 'webcomposer.info@gmail.com'
+
+  # END OF CUSTOM SETTINGS
+
 end

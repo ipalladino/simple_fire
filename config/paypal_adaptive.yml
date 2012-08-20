@@ -1,22 +1,22 @@
 development:
   environment: "sandbox"
-  username: "busine_1333086758_biz_api1.simplecustomsolutions.com"
-  password: "1333086783"
-  signature: "AlEVEy2NSos6n7zF9m5mUxa-Ic2JA45ABgsNQ-rOe7rsgdcxvDT-YqiP"
+  username: "cdeyan_1338373228_biz@yahoo.com"
+  password: "1338373255"
+  signature: "AtSpke7D7ktK8q6mHkNRR-8I3r0mAKf5oK0siokqoQbCHHwNblZ0Gzoo "
   application_id: "APP-80W284485P519543T"
 
 
 test:
   environment: "sandbox"
-  username: "busine_1333086758_biz_api1.simplecustomsolutions.com"
-  password: "1333086783"
-  signature: "AlEVEy2NSos6n7zF9m5mUxa-Ic2JA45ABgsNQ-rOe7rsgdcxvDT-YqiP"
+  username: "cdeyan_1338373228_biz@yahoo.com"
+  password: "1338373255"
+  signature: "AtSpke7D7ktK8q6mHkNRR-8I3r0mAKf5oK0siokqoQbCHHwNblZ0Gzoo "
   application_id: "APP-80W284485P519543T"
 
 production:
   environment: "sandbox"
-  username: "busine_1333086758_biz_api1.simplecustomsolutions.com"
-  password: "1333086783"
-  signature: "AlEVEy2NSos6n7zF9m5mUxa-Ic2JA45ABgsNQ-rOe7rsgdcxvDT-YqiP"
+  username: "cdeyan_1338373228_biz@yahoo.com"
+  password: "1338373255"
+  signature: "AtSpke7D7ktK8q6mHkNRR-8I3r0mAKf5oK0siokqoQbCHHwNblZ0Gzoo "
   application_id: "APP-80W284485P519543T"
   

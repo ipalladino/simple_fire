@@ -41,18 +41,18 @@ class PagesController < ApplicationController
     if(e != nil)  
       @price = e.price
     
-      return_url = "http://artiphany.herokuapp.com/transaction_complete"
-      ipn_url = "http://artiphany.herokuapp.com/transaction"
-      cancel_url = "http://artiphany.herokuapp.com/cancel_transaction"
+      return_url = Rails.application.config.paypal_return_url
+      ipn_url = Rails.application.config.paypal_ipn_url
+      cancel_url = Rails.application.config.paypal_cancel_url
     
       pay_request = PaypalAdaptive::Request.new
           data = {
             "returnUrl" => return_url,
             "requestEnvelope" => {"errorLanguage" => "en_US"},
-            "currencyCode" => "USD",
+            "currencyCode" => Rails.application.config.paypal_currentcy,
             "receiverList" =>
                     { "receiver" => [
-                      {"email" => "busine_1333086758_biz@simplecustomsolutions.com", "amount"=> @price}
+                      {"email" => Rails.application.config.paypal_receiver_email, "amount"=> @price}
                     ]},
             "cancelUrl" => cancel_url,
             "actionType" => "PAY",
@@ -149,7 +149,8 @@ class PagesController < ApplicationController
           :message => params[:message]
         }
         CodeNotifier.support_mail(content).deliver
-        redirect_to "http://artiphany.herokuapp.com/support_request_sent"
+        # DELETE ME: redirect_to "http://artiphany.herokuapp.com/support_request_sent"
+        redirect_to :action => :support_request_sent
       else
         @message = "You need to fill all the fields, thank you."
       end
