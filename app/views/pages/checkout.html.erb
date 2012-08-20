@@ -1,0 +1,36 @@
+
+<div id="ecard_description">
+	<section class="section2">
+	
+	<h1>Review your order:</h1>
+	
+	
+	<div class="col-1">
+		<ul>
+			<li>
+		
+			</li>
+			<li class="title">Your Name:</li>
+			<li class="output"><%= @sender_name %></li>
+			
+			<li class="title">Your Email:</li>
+			<li class="output"><%=  @sender_email %></li>
+			
+			<li class="title">Their Name:</li>
+			<li class="output"><%= @recipient_name %></li>
+			
+			<li class="title">Their Email:</li>
+			<li class="output"><%= @recipient_email %></li>
+			
+			<li class="title">Your greeting message:</li>
+			<li class="output"><%= @message1 %></li>
+		</ul>
+	</div>
+	<div class="col-2">
+		<img src="<%= @image %>" />
+	</div>
+	<div class="clear">
+	</div>
+  
+	</section>
+</div>

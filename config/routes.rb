@@ -1,5 +1,6 @@
 D2mECards::Application.routes.draw do
 
+  get "sessions/new"
   get "sessions/login"
   resources :sessions
   
@@ -9,27 +10,42 @@ D2mECards::Application.routes.draw do
   resources :ecards
   resources :sent_ecards
 
+  get "ecard_orders/new"
+
+  get "sent_ecards/new"
+
+  get "senders/new"
+
   resources :users
   root :to => 'pages#app'
   
-  match '/app', :to =>  'pages#app'
-  
-  # IMPORTANT !! Called from flash application when user is ready for checkout with paypal
+  match '/testdesign', :to =>  'pages#testdesign'
   match '/checkout', :to =>  'pages#checkout'
   match '/requestmessages', :to =>  'ecard_orders#requestmessages'
   match '/view/ecard', :to =>  'ecard_orders#viewecard'
   match '/contact', :to =>  'pages#contact'
-  
+  match '/app', :to =>  'pages#app'
   match '/testnewapp', :to =>  'pages#testnewapp'
-
-  #SUPPORT LINKS
+  match '/getproducts', :to => 'pages#getproducts'
+  match '/do_special_request', :to => 'pages#do_special_request'
+  match '/addtocart', :to => 'pages#addtocart'
+  match '/paywithpaypal', :to => 'pages#paywithpaypal'
+  match '/viewcookie', :to => 'pages#viewcookie'
   match '/support', :to => 'pages#support'
   match '/support_request_sent', :to => 'pages#support_request_sent'
   
+  
   match '/view_ecard_mobile', :to => 'ecard_orders#view_ecard_mobile'
   match '/transaction', :to => 'pages#transaction'
+  match '/transactionsuccess', :to => 'ecard_orders#transactionsuccess'
   match '/transaction_complete', :to => 'ecard_orders#transaction_complete'
   match '/handleorder', :to => 'ecard_orders#handleorder'
+  match '/redeemcode', :to => 'ecard_orders#redeemcode'
+  match '/autoredeem', :to => 'ecard_orders#autoredeem'
+  
+  
+  
+  
   
   #map.resources :sessions
   #map.login 'login', :controller => 'sessions', :action => 'new'
