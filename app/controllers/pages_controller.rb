@@ -188,6 +188,10 @@ class PagesController < ApplicationController
   def new_secure_link(string)
     Digest::SHA2.hexdigest(string)
   end
+
+  def e
+    render :text => "Rails env: #{Rails.env}"
+  end
   
 end
 
