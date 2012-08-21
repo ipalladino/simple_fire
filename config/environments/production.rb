@@ -83,9 +83,9 @@ D2mECards::Application.configure do
 
   # END OF CUSTOM SETTINGS
 
-  config.paypal_return_url = 'http://77.28.98.73:8202/transaction_complete'
-  config.paypal_ipn_url = 'http://77.28.98.73:8202/transaction'
-  config.paypal_cancel_url = 'http://77.28.98.73:8202/cancel_transaction'
+  config.paypal_return_url = 'http://artiphany.herokuapp.com/transaction_complete'
+  config.paypal_ipn_url = 'http://artiphany.herokuapp.com/transaction'
+  config.paypal_cancel_url = 'http://artiphany.herokuapp.com/cancel_transaction'
   config.paypal_currentcy = 'USD'
   config.paypal_receiver_email = 'cdeyan_1338373228_biz@yahoo.com'
 
