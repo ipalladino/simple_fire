@@ -26,7 +26,7 @@ D2mECards::Application.routes.draw do
   root :to => 'pages#app'
   
   match '/testdesign', :to =>  'pages#testdesign'
-  match '/checkout', :to =>  'pages#checkout'
+  match '/checkout', :to =>  'payment#checkout'
   match '/requestmessages', :to =>  'ecard_orders#requestmessages'
   match '/view/ecard', :to =>  'ecard_orders#viewecard'
   match '/contact', :to =>  'pages#contact'
@@ -42,12 +42,14 @@ D2mECards::Application.routes.draw do
   
   
   match '/view_ecard_mobile', :to => 'ecard_orders#view_ecard_mobile'
-  match '/transaction', :to => 'pages#transaction', :via => :post
+  match '/transaction', :to => 'payment#complete'
   match '/transactionsuccess', :to => 'ecard_orders#transactionsuccess'
   match '/transaction_complete', :to => 'ecard_orders#transaction_complete'
   match '/handleorder', :to => 'ecard_orders#handleorder'
   match '/redeemcode', :to => 'ecard_orders#redeemcode'
   match '/autoredeem', :to => 'ecard_orders#autoredeem'
+
+  match '/cancel', :to => 'payment#cancel'
 
   match '/e', :to => 'pages#e'
 
