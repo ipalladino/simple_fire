@@ -14,7 +14,7 @@ class PaymentController < ApplicationController
         {
             :name => ecard.title,
             :quantity => 1,
-            :amount => ecard.price
+            :amount => price
         }
       ]
     )
