@@ -49,7 +49,8 @@ D2mECards::Application.routes.draw do
   match '/redeemcode', :to => 'ecard_orders#redeemcode'
   match '/autoredeem', :to => 'ecard_orders#autoredeem'
 
-  match '/cancel', :to => 'payment#cancel'
+  match '/payment/complete', :to => 'payment#complete'
+  match '/payment/cancel', :to => 'payment#cancel'
 
   match '/e', :to => 'pages#e'
 
