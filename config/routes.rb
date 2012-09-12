@@ -1,5 +1,11 @@
 D2mECards::Application.routes.draw do
 
+  get "payment/checkout"
+
+  get "payment/confirm"
+
+  get "payment/complete"
+
   get "sessions/new"
   get "sessions/login"
   resources :sessions

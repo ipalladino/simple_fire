@@ -81,28 +81,26 @@ D2mECards::Application.configure do
   #config.email_bcc = ['cdejan@gmail.com', 'webcomposer.info@gmail.com']
   #config.email_support = 'webcomposer.info@gmail.com'
 
-  # END OF CUSTOM SETTINGS
-
   config.paypal_return_url = 'http://artiphany.herokuapp.com/transaction_complete'
   config.paypal_ipn_url = 'http://artiphany.herokuapp.com/transaction'
   config.paypal_cancel_url = 'http://artiphany.herokuapp.com/cancel_transaction'
   config.paypal_currentcy = 'USD'
   config.paypal_receiver_email = 'cdeyan_1338373228_biz@yahoo.com'
 
-  #config.ftp_server = 'ftp.simplecustomsolutions.com'
-  #config.ftp_user = 'ipalladino'
-  #config.ftp_password = 'ip8801ip'
-  #config.ftp_swf_dir = '/simplecustomsolutions.com/artiphany_assets/ecard_swfs/'
-  #config.ftp_images_dir = '/simplecustomsolutions.com/artiphany_assets/ecard_images/'
-  #config.ftp_videos_dir = '/simplecustomsolutions.com/artiphany_assets/ecard_videos/'
-  #config.ftp_artiphany_assets_dir = '/simplecustomsolutions.com/artiphany_assets/'
-  #
-  #config.video_files_url = 'http://www.simplecustomsolutions.com/animations/'
-  #
-  #config.email_from = 'no-reply@artiphany.com'
-  #config.email_return_path = 'system@example.com'
-  #config.email_bcc = ['cdejan@gmail.com', 'webcomposer.info@gmail.com']
-  #config.email_support = 'webcomposer.info@gmail.com'
+  config.ftp_server = 'ftp.simplecustomsolutions.com'
+  config.ftp_user = 'ipalladino'
+  config.ftp_password = 'ip8801ip'
+  config.ftp_swf_dir = '/simplecustomsolutions.com/artiphany_assets/ecard_swfs/'
+  config.ftp_images_dir = '/simplecustomsolutions.com/artiphany_assets/ecard_images/'
+  config.ftp_videos_dir = '/simplecustomsolutions.com/artiphany_assets/ecard_videos/'
+  config.ftp_artiphany_assets_dir = '/simplecustomsolutions.com/artiphany_assets/'
+
+  config.video_files_url = 'http://www.simplecustomsolutions.com/animations/'
+
+  config.email_from = 'no-reply@artiphany.com'
+  config.email_return_path = 'system@example.com'
+  config.email_bcc = ['cdejan@gmail.com', 'webcomposer.info@gmail.com']
+  config.email_support = 'webcomposer.info@gmail.com'
 
   #config.paypal_return_url = 'http://77.28.98.73:8202/transaction_complete'
   #config.paypal_ipn_url = 'http://77.28.98.73:8202/transaction'
@@ -110,19 +108,30 @@ D2mECards::Application.configure do
   #config.paypal_currentcy = 'USD'
   #config.paypal_receiver_email = 'cdeyan_1338373228_biz@yahoo.com'
 
-  config.ftp_server = '77.28.98.73'
-  config.ftp_user = 'rails'
-  config.ftp_password = 'myR0rPwd'
-  config.ftp_swf_dir = '/artiphany_assets/ecard_swfs/'
-  config.ftp_images_dir = '/artiphany_assets/ecard_images/'
-  config.ftp_videos_dir = '/artiphany_assets/ecard_videos/'
-  config.ftp_artiphany_assets_dir = '/artiphany_assets/'
+  #config.ftp_server = '77.28.98.73'
+  #config.ftp_user = 'rails'
+  #config.ftp_password = 'myR0rPwd'
+  #config.ftp_swf_dir = '/artiphany_assets/ecard_swfs/'
+  #config.ftp_images_dir = '/artiphany_assets/ecard_images/'
+  #config.ftp_videos_dir = '/artiphany_assets/ecard_videos/'
+  #config.ftp_artiphany_assets_dir = '/artiphany_assets/'
+  #
+  #config.video_files_url = 'http://77.28.98.73:8201/animations/'
+  #
+  #config.email_from = 'webcomposer.info@gmail.com'
+  #config.email_return_path = 'system@example.com'
+  #config.email_bcc = ['webcomposer.info@gmail.com']
+  #config.email_support = 'webcomposer.info@gmail.com'
 
-  config.video_files_url = 'http://77.28.98.73:8201/animations/'
+  # END OF CUSTOM SETTINGS
 
-  config.email_from = 'webcomposer.info@gmail.com'
-  config.email_return_path = 'system@example.com'
-  config.email_bcc = ['webcomposer.info@gmail.com']
-  config.email_support = 'webcomposer.info@gmail.com'
+  config.after_initialize do
+    ActiveMerchant::Billing::Base.mode = :test
 
+    ::PAYPAL_EXPRESS = ActiveMerchant::Billing::PaypalExpressGateway.new(
+        :login => "cdeyan_1345633711_biz_api1.yahoo.com",
+        :password => "1345633737",
+        :signature => "AFcWxV21C7fd0v3bYYYRCpSSRl31A98gd959of9JhAi4.vg9G3guxEvp"
+    )
+  end
 end
