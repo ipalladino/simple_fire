@@ -19,6 +19,8 @@ class PaymentController < ApplicationController
       ]
     )
 
+    logger.info(">>> PayPal: #{response.message}")
+
     SentEcard.create(
         :recipientemail => params[:recipient_email],
         :recipientname => params[:recipient_name],
