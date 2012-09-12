@@ -1,4 +1,5 @@
 class PaymentController < ApplicationController
+  protect_from_forgery :except => :checkout
 
   def checkout
     ecard = Ecard.find(params[:ecard_id])
