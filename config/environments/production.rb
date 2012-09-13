@@ -126,7 +126,7 @@ D2mECards::Application.configure do
   # END OF CUSTOM SETTINGS
 
   config.after_initialize do
-    ActiveMerchant::Billing::Base.mode = :test
+    # ActiveMerchant::Billing::Base.mode = :test
 
     ::PAYPAL_EXPRESS = ActiveMerchant::Billing::PaypalExpressGateway.new(
         :login => "jlittleboy_api1.yahoo.com",
