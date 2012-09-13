@@ -129,9 +129,9 @@ D2mECards::Application.configure do
     ActiveMerchant::Billing::Base.mode = :test
 
     ::PAYPAL_EXPRESS = ActiveMerchant::Billing::PaypalExpressGateway.new(
-        :login => "cdeyan_1345633711_biz_api1.yahoo.com",
-        :password => "1345633737",
-        :signature => "AFcWxV21C7fd0v3bYYYRCpSSRl31A98gd959of9JhAi4.vg9G3guxEvp"
+        :login => "jlittleboy_api1.yahoo.com",
+        :password => "UFNB39YP38S54GD6",
+        :signature => "AFcWxV21C7fd0v3bYYYRCpSSRl31AIbMr-NyKZuwGgTvP0eaQGp30KZR"
     )
   end
 end
