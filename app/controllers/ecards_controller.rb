@@ -7,8 +7,8 @@ class EcardsController < ApplicationController
   end
 
   # FTP session filters...
-  before_filter :open_ftp, :only => [:create, :destroy]
-  after_filter :close_ftp, :only => [:create, :destroy]
+  before_filter :open_ftp, :only => [:create, :destroy, :update]
+  after_filter :close_ftp, :only => [:create, :destroy, :update]
 
   def index
     @ecards = Ecard.all
@@ -28,14 +28,48 @@ class EcardsController < ApplicationController
   def update
     e = Ecard.find(params[:id])
 
+    return redirect_to :action => 'index' unless e != nil
+
+    swf_file = params[:swf_file]
+    image_file = params[:image_file]
+    video_file = params[:video_file]
+
+    begin
+      unless swf_file.blank?
+        @ftp_session.chdir(Rails.application.config.ftp_swf_dir)
+        @ftp_session.storbinary("STOR #{e.filename}.new", StringIO.new(swf_file.read), Net::FTP::DEFAULT_BLOCKSIZE)
+        @ftp_session.rename(e.filename, "#{e.filename}.bak")
+        @ftp_session.rename("#{e.filename}.new", e.filename)
+        @ftp_session.delete("#{e.filename}.bak")
+      end
+
+      unless image_file.blank?
+        @ftp_session.chdir(Rails.application.config.ftp_images_dir)
+        @ftp_session.storbinary("STOR #{e.image}.new", StringIO.new(image_file.read), Net::FTP::DEFAULT_BLOCKSIZE)
+        @ftp_session.rename(e.image, "#{e.image}.bak")
+        @ftp_session.rename("#{e.image}.new", e.image)
+        @ftp_session.delete("#{e.image}.bak")
+      end
+
+      unless video_file.blank?
+        @ftp_session.chdir(Rails.application.config.ftp_videos_dir)
+        @ftp_session.storbinary("STOR #{e.video_file}.new", StringIO.new(video_file.read), Net::FTP::DEFAULT_BLOCKSIZE)
+        @ftp_session.rename(e.video_file, "#{e.video_file}.bak")
+        @ftp_session.rename("#{e.video_file}.new", e.video_file)
+        @ftp_session.delete("#{e.video_file}.bak")
+      end
+    rescue
+      logger.error("Unable to copy binary file")
+      raise
+    else
+      logger.debug("File successfully uploaded!")
+    end
+
     e.update_attributes(
       :title => params[:title],
       :description => params[:description],
       :tags => params[:tags],
-      :price => params[:price],
-      :image => params[:image],
-      :filename => params[:filename],
-      :video_file => params[:video_file]
+      :price => params[:price]
     )
 
     redirect_to :action => 'index'

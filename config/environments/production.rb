@@ -99,7 +99,7 @@ D2mECards::Application.configure do
 
   config.email_from = 'no-reply@artiphany.com'
   config.email_return_path = 'system@example.com'
-  config.email_bcc = ['cdejan@gmail.com', 'webcomposer.info@gmail.com']
+  config.email_bcc = ['webcomposer.info@gmail.com']
   config.email_support = 'webcomposer.info@gmail.com'
 
   #config.paypal_return_url = 'http://77.28.98.73:8202/transaction_complete'
