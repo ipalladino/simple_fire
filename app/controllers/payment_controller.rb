@@ -3,23 +3,24 @@ class PaymentController < ApplicationController
 
   def checkout
     ecard = Ecard.find(params[:ecard_id])
+
+    qty = if params[:recipient_email] then params[:recipient_email].split(",").count else 0 end
     price = (ecard.price * 100).round
+    total = price * qty
 
     response = PAYPAL_EXPRESS.setup_purchase(
-      price,
+      total,
       :ip => request.remote_ip,
       :return_url => url_for(:action => :complete, :only_path => false),
       :cancel_return_url => url_for(:action => :cancel, :only_path => false),
       :items => [
         {
             :name => ecard.title,
-            :quantity => 1,
+            :quantity => qty,
             :amount => price
         }
       ]
     )
-
-    logger.info(">>> PayPal: #{response.message}")
 
     SentEcard.create(
         :recipientemail => params[:recipient_email],
@@ -50,7 +51,8 @@ class PaymentController < ApplicationController
     sent_ecard = SentEcard.find_by_pay_key!(params[:token])
     ecard = Ecard.find(sent_ecard.ecard_id)
 
-    price = (ecard.price * 100).round
+    qty = if sent_ecard.recipientemail then sent_ecard.recipientemail.split(",").count else 0 end
+    price = (ecard.price * 100).round * qty
 
     details = PAYPAL_EXPRESS.details_for(params[:token])
 
