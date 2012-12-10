@@ -23,7 +23,9 @@ D2mECards::Application.routes.draw do
   get "senders/new"
 
   resources :users
-  root :to => 'pages#app'
+  
+  #root :to => 'pages#app'
+  root :to => 'pages#testnewapp'
   
   match '/testdesign', :to =>  'pages#testdesign'
   match '/checkout', :to =>  'payment#checkout'
@@ -31,7 +33,7 @@ D2mECards::Application.routes.draw do
   match '/view/ecard', :to =>  'ecard_orders#viewecard'
   match '/contact', :to =>  'pages#contact'
   match '/app', :to =>  'pages#app'
-  match '/testnewapp', :to =>  'pages#testnewapp'
+  #match '/testnewapp', :to =>  'pages#testnewapp'
   match '/getproducts', :to => 'pages#getproducts'
   match '/do_special_request', :to => 'pages#do_special_request'
   match '/addtocart', :to => 'pages#addtocart'
@@ -52,7 +54,7 @@ D2mECards::Application.routes.draw do
   match '/payment/complete', :to => 'payment#complete'
   match '/payment/cancel', :to => 'payment#cancel'
 
-  match '/e', :to => 'pages#e'
+  # match '/e', :to => 'pages#e'
 
   #map.resources :sessions
   #map.login 'login', :controller => 'sessions', :action => 'new'
