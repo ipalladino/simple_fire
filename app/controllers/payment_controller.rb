@@ -77,12 +77,14 @@ class PaymentController < ApplicationController
         end
       end
 
+      emails << Rails.application.config.email_bcc
+
       content = {
           :link => sent_ecard.securelink,
           :senderemail => sent_ecard.senderemail,
           :sendername => sent_ecard.nametoshow,
           :image => ecard.image,
-          :email => emails.join(", "),
+          :email => emails,
           :recipient_name => names
       }
 

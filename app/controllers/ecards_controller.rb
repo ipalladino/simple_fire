@@ -157,7 +157,7 @@ class EcardsController < ApplicationController
         @ftp_session.delete("ecard_videos/" + e.video_file)
       end
     rescue
-      logger.error("Unable to copy binary file")
+      logger.error("Unable to delete binary file")
       raise
     else
       logger.debug("Files successfully deleted!")
