@@ -321,7 +321,7 @@ class EcardOrdersController < ApplicationController
     sentecard = SentEcard.find_by_securelink(code)
     e = Ecard.find_by_id(sentecard.ecard_id)
     begin
-      sentecard.filename = e.filename
+      sentecard[:filename] = e.filename
     rescue
       print "ecard_orders_controller.requestmessages, sentecard.filename not properly set"
     end
