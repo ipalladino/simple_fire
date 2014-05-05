@@ -122,13 +122,29 @@ class PagesController < ApplicationController
           puts "senderemail:#{e.senderemail}"
           puts "sendername:#{e.nametoshow}"
           puts "image:#{ecard.image}"
-        
-          content = {:email => e.recipientemail, 
-                     :recipient_name => e.recipientname, 
-                     :link => e.securelink,
-                     :senderemail => e.senderemail,
-                     :sendername => e.nametoshow,
-                     :image => ecard.image}
+
+          recipients = e.recipientemail.split(",")
+          names = e.recipientname.split(",")
+
+          emails = []
+
+          recipients.each_with_index do |recip, idx|
+            if names[idx] != nil then
+              emails << "#{names[idx].strip} <#{recip.strip}>"
+            else
+              emails << recip.strip
+            end
+          end
+
+          content = {
+            :link => e.securelink,
+            :senderemail => e.senderemail,
+            :sendername => e.nametoshow,
+            :image => ecard.image,
+            :email => emails.join(", "),
+            :recipient_name => names
+          }
+
           CodeNotifier.recipient(content).deliver
         end
       end
@@ -136,7 +152,7 @@ class PagesController < ApplicationController
       puts "IT DIDNT WORK"
     end
 
-    render :nothing => true
+    render :nothing => true, :status => :ok
   end
 
   

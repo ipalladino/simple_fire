@@ -18,7 +18,7 @@
 	</tr>
 	<tr>
 		<td>
-			<p style="font-family:'Arial'; font-weight:bold; color:#999999;">Hi <%= @content[:recipient_name]%>!
+			<p style="font-family:'Arial'; font-weight:bold; color:#999999;">Hi,
 				</p>
 			<p>
 				I just sent you an eCard I hope you like!.<br />
@@ -32,7 +32,7 @@
 	</tr>
 	<tr>
 		<td>
-			<a href="http://artiphany.herokuapp.com/view/ecard?ecard=<%= @content[:link]%>"><img src="http://www.simplecustomsolutions.com/artiphany_assets/ecard_images/<%= @content[:image] %>" /></a>
+			<a href="http://artiphany.herokuapp.com/view/ecard?ecard=<%= @content[:link]%>"><img src="http://www.simplecustomsolutions.com/artiphany_assets/ecard_images/<%= @content[:image] %>" border="0"/></a>
 		</td>
 	</tr>
 	</table>

@@ -1,5 +1,11 @@
 D2mECards::Application.routes.draw do
 
+  get "payment/checkout"
+
+  get "payment/confirm"
+
+  get "payment/complete"
+
   get "sessions/new"
   get "sessions/login"
   resources :sessions
@@ -17,15 +23,17 @@ D2mECards::Application.routes.draw do
   get "senders/new"
 
   resources :users
-  root :to => 'pages#app'
+  
+  #root :to => 'pages#app'
+  root :to => 'pages#testnewapp'
   
   match '/testdesign', :to =>  'pages#testdesign'
-  match '/checkout', :to =>  'pages#checkout'
+  match '/checkout', :to =>  'payment#checkout'
   match '/requestmessages', :to =>  'ecard_orders#requestmessages'
   match '/view/ecard', :to =>  'ecard_orders#viewecard'
   match '/contact', :to =>  'pages#contact'
   match '/app', :to =>  'pages#app'
-  match '/testnewapp', :to =>  'pages#testnewapp'
+  #match '/testnewapp', :to =>  'pages#testnewapp'
   match '/getproducts', :to => 'pages#getproducts'
   match '/do_special_request', :to => 'pages#do_special_request'
   match '/addtocart', :to => 'pages#addtocart'
@@ -36,17 +44,18 @@ D2mECards::Application.routes.draw do
   
   
   match '/view_ecard_mobile', :to => 'ecard_orders#view_ecard_mobile'
-  match '/transaction', :to => 'pages#transaction'
+  match '/transaction', :to => 'payment#complete'
   match '/transactionsuccess', :to => 'ecard_orders#transactionsuccess'
   match '/transaction_complete', :to => 'ecard_orders#transaction_complete'
   match '/handleorder', :to => 'ecard_orders#handleorder'
   match '/redeemcode', :to => 'ecard_orders#redeemcode'
   match '/autoredeem', :to => 'ecard_orders#autoredeem'
-  
-  
-  
-  
-  
+
+  match '/payment/complete', :to => 'payment#complete'
+  match '/payment/cancel', :to => 'payment#cancel'
+
+  # match '/e', :to => 'pages#e'
+
   #map.resources :sessions
   #map.login 'login', :controller => 'sessions', :action => 'new'
   #map.logout 'logout', :controller => 'sessions', :action => 'destroy'

@@ -11,22 +11,12 @@ class CodeNotifier < ActionMailer::Base
   
   def recipient(content)
     @content = content
-    name = content[:sendername]
-    messagesubject = name + " just sent you an Artiphany eCard"
 
-    #mail(:to => content[:email],
-    #     :from => name + " <" + content[:senderemail] + ">",
-    #     :bcc => Rails.application.config.email_bcc,
-    #     :subject => messagesubject)
+    messagesubject = content[:sendername] + " just sent you an Artiphany eCard"
 
-    recipients = content[:email].split(",")
-
-    recipients.each do |recip|
-      mail(:to => recip,
-           :from => name + " <" + content[:senderemail] + ">",
-           :bcc => Rails.application.config.email_bcc,
-           :subject => messagesubject)
-    end
+    mail(:bcc => content[:email],
+         :from => content[:sendername] + " <" + content[:senderemail] + ">",
+         :subject => messagesubject)
   end
   
   def support_mail(content)
